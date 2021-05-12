@@ -1,4 +1,5 @@
 <div class="box-list">
+
 <table>
   <tr class=list1>
     <th class="inventario">producto</th>
@@ -7,10 +8,36 @@
     <th class="inventario">precio</th>
   </tr>
   <tr>
-    <td>{{producto.nombre_pro}}</td>
-    <td>{{producto.marca_pro}}</td>
-    <td>{{producto.proveedor}}</td>
-    <td>{{producto.precio}}</td>
+   <td>
+     <ul  *ngFor="let pro of producto">
+       <li >
+        {{pro.nombre_pro}}
+       </li>
+     </ul>
+
+   </td>
+   <td>
+    <ul  *ngFor="let pro of producto">
+      <li >
+       {{pro.marca_pro}}
+      </li>
+    </ul>
+  </td>
+  <td>
+    <ul  *ngFor="let pro of producto">
+      <li >
+       {{pro.proveedor}}
+      </li>
+    </ul>
+  </td>
+  <td>
+    <ul  *ngFor="let pro of producto">
+      <li class="lis-item-precio" >
+       ${{pro.precio}}
+      </li>
+    </ul>
+  </td>
+
   </tr>
 </table>
 </div>

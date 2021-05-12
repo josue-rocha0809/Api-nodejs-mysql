@@ -2,7 +2,7 @@
 <header>
     <input type="checkbox" id="btn-menu">
     <label for="btn-menu"><img src="./assets/menu.png" alt=""></label>
-  
+
     <nav class="menu">
       <ul>
         <li><a href="">Inventario</a></li>
@@ -28,25 +28,25 @@
                             <label>Nombre del Porducto:</label>
                         </p>
                         <p>
-                            <input type='text' name='Nombre'>
+                            <input type='text' name='Nombre' [(ngModel)]="produ.nombre_pro">
                         </p>
                         <p>
                             <label>Marca:</label>
                         </p>
                         <p>
-                            <input type="text" name="marca">
-                        </p>
-                        <p>
-                            <label>Precio:</label>
-                        </p>
-                        <p>
-                            <input type="text" name="precio">
+                            <input type="text" name="marca" [(ngModel)]="produ.marca_pro">
                         </p>
                         <p>
                             <label>Proveedor:</label>
                         </p>
                         <p>
-                            <input type='tel' name="proveedor">
+                            <input type="text" name="poveedor" [(ngModel)]="produ.proveedor">
+                        </p>
+                        <p>
+                            <label>Precio:</label>
+                        </p>
+                        <p>
+                            <input type='tel' name="precio"[(ngModel)]="produ.precio">
                         </p>
                         <div class="tres">
                             <p>
@@ -55,7 +55,7 @@
                                 </button>
                             </p>
                             <p>
-                                <button type="submit" >
+                                <button type="submit" (click)="saveProduct()">
                                     Guardar
                                 </button>
                             </p>
@@ -70,4 +70,45 @@
         </div>
       </div>
 
-  
+      <div class="box-list">
+
+        <table>
+          <tr class=list1>
+            <th class="inventario">producto</th>
+            <th class="inventario">marca</th>
+            <th class="inventario">precio</th>
+          </tr>
+          <tr>
+            <td>
+              <ul  *ngFor="let pro of productos">
+                <li >
+                 {{pro.nombre_pro}}
+                </li>
+              </ul>
+
+            </td>
+            <td>
+             <ul  *ngFor="let pro of productos">
+               <li >
+                {{pro.marca_pro}}
+               </li>
+             </ul>
+           </td>
+           <td>
+             <ul  *ngFor="let pro of productos">
+               <li >
+                ${{pro.precio}}
+               </li>
+               </ul>
+              </td>
+              <td>
+                <ul  *ngFor="let pro of productos">
+                  <li >
+                   <button [(ngModel)]="pro.id" (click)="productinfo()">+</button>
+                  </li>
+                  </ul>
+                 </td>
+
+           </tr>
+        </table>
+        </div>

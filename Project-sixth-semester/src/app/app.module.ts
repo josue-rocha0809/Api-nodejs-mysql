@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -14,6 +15,7 @@ import { ProductosComponent } from './components/inventario/productos/productos.
 import { ProveedoresComponent } from './components/inventario/proveedores/proveedores.component';
 import { MercanciaComponent } from './components/inventario/mercancia/mercancia.component';
 import { EditartrabajadorComponent } from './components/trabajador/editartrabajador/editartrabajador.component';
+
 import { ProductosService } from './services/productos.service';
 import { ListComponent } from './components/list/list.component';
 

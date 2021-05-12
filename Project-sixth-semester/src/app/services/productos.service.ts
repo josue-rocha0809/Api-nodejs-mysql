@@ -11,8 +11,8 @@ export class ProductosService {
 
   constructor(private http:HttpClient) { }
 
-  getProducts(){
-    return  this.http.get(`${this.API_URI}/productos`);
+  getProducts():Observable<Products[]>{
+    return  this.http.get<Products[]>(`${this.API_URI}/productos`);
   }
   getProduct(id:String){
     return  this.http.get(`${this.API_URI}/productos/${id}`);

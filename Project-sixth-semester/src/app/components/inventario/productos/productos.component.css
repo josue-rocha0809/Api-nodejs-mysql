@@ -3,11 +3,12 @@
 }
 
 .content{
-    
+
     max-width: 800px;
-    margin-left: auto;
+    margin-left: 50px;
     margin-right: auto;
     padding: 1.5em;
+    float: left;
 }
 
 .contact-wrapper{
@@ -51,5 +52,34 @@
 
 .contact-info{
     background: #000;
+}
+
+.box-list{
+  background-color:white;
+  color: black;
+  height: 500px;
+  width: 400px;
+  margin-top: 25px;
+  margin-left: 300px;
+  overflow-y: scroll;
+  float: left;
+
+}
+.inventario{
+border: 1px solid black;
+}
+th{
+  padding: 10px 20px ;
+}
+td{
+  text-align: center;
+  border-right: 1px solid black;
+  color: black;
+}
+ul{
+  border-bottom: 1px solid black;
+}
+.list-item-precio{
+  padding-right: 20px;
 }
 
