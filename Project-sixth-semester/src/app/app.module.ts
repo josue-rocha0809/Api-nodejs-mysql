@@ -17,7 +17,9 @@ import { MercanciaComponent } from './components/inventario/mercancia/mercancia.
 import { EditartrabajadorComponent } from './components/trabajador/editartrabajador/editartrabajador.component';
 
 import { ProductosService } from './services/productos.service';
-import { ListComponent } from './components/list/list.component';
+import { ListComponent } from './components/inventario/list/list.component';
+import { ProveedoresService } from './services/proveedores.service';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { ListComponent } from './components/list/list.component';
     MercanciaComponent,
     EditartrabajadorComponent,
     ListComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { ListComponent } from './components/list/list.component';
     MatFormFieldModule,
     HttpClientModule,
   ],
-  providers: [ProductosService],
+  providers: [ProductosService,ProveedoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

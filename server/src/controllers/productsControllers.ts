@@ -32,7 +32,7 @@ class ProductsControllers{
      await pool.query('DELETE FROM productos WHERE id = ?',[id]);
      res.json({message:'the game was deleted'});
     }
-
+  
 }
 
 const productController = new ProductsControllers();

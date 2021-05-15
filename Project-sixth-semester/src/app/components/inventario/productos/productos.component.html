@@ -1,19 +1,6 @@
+<app-nav></app-nav>
 
-<header>
-    <input type="checkbox" id="btn-menu">
-    <label for="btn-menu"><img src="./assets/menu.png" alt=""></label>
-
-    <nav class="menu">
-      <ul>
-        <li><a href="">Inventario</a></li>
-        <li><a href="./productos">Editar Producto</a></li>
-        <li><a href="./proveedores">Proveedores</a></li>
-        <li><a href="./mercanciaEntrante">Compra Mercancia</a></li>
-      </ul>
-    </nav>
-  </header>
-
-    <div class="content">
+<div class="content">
         <div class="contact-wrapper">
             <div class="contact-form">
                   <h3 class="centrado">Productos</h3>
@@ -39,9 +26,15 @@
                         <p>
                             <label>Proveedor:</label>
                         </p>
-                        <p>
-                            <input type="text" name="poveedor" [(ngModel)]="produ.proveedor">
-                        </p>
+                        
+                          <select  [(ngModel)]="opcionSeleccionado" (change)="capturar()" class="form-select" aria-label="Default select example" >
+                            <option value="pe.id" selected="selected" *ngFor="let pe of proveedores" >
+                              {{pe.nombre}}
+                            </option>
+                          </select>
+                          
+                            
+                        
                         <p>
                             <label>Precio:</label>
                         </p>
@@ -70,45 +63,58 @@
         </div>
       </div>
 
-      <div class="box-list">
-
-        <table>
-          <tr class=list1>
-            <th class="inventario">producto</th>
-            <th class="inventario">marca</th>
-            <th class="inventario">precio</th>
-          </tr>
-          <tr>
-            <td>
-              <ul  *ngFor="let pro of productos">
-                <li >
-                 {{pro.nombre_pro}}
-                </li>
-              </ul>
-
-            </td>
-            <td>
-             <ul  *ngFor="let pro of productos">
-               <li >
-                {{pro.marca_pro}}
-               </li>
-             </ul>
-           </td>
-           <td>
-             <ul  *ngFor="let pro of productos">
-               <li >
-                ${{pro.precio}}
-               </li>
-               </ul>
-              </td>
-              <td>
-                <ul  *ngFor="let pro of productos">
-                  <li >
-                   <button [(ngModel)]="pro.id" (click)="productinfo()">+</button>
-                  </li>
-                  </ul>
-                 </td>
-
-           </tr>
-        </table>
-        </div>
+      
+              
+                 <div class="box-list">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Proveedor</th>
+                        <th scope="col">Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <td>
+                        <ul  *ngFor="let pro of productos">
+                          <li >
+                           {{pro.nombre_pro}}
+                          </li>
+                        </ul>
+                   
+                      </td>
+                      <td>
+                       <ul  *ngFor="let pro of productos">
+                         <li >
+                          {{pro.marca_pro}}
+                         </li>
+                       </ul>
+                     </td>
+                     <td>
+                       <ul  *ngFor="let pro of productos">
+                         <li >
+                          {{pro.proveedor}}
+                         </li>
+                       </ul>
+                     </td>
+                     <td>
+                       <ul  *ngFor="let pro of productos">
+                         <li class="lis-item-precio" >
+                          ${{pro.precio}}
+                         </li>
+                       </ul>
+                     </td>
+                     <td>
+                      <ul  *ngFor="let pro of productos">
+                        <li >
+                          <button type="button" class="btn btn-danger" (click)="deleteProduct(pro.id)">
+                            <i class="fas fa-trash-alt"></i>
+                          </button>
+                          </li>
+                        </ul>
+                       </td>
+                    </tbody>
+                  </table>
+                  </div>
+          

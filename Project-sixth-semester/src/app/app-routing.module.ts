@@ -8,7 +8,7 @@ import { InfotrabajadoresComponent } from './components/trabajador/infotrabajado
 import { ProveedoresComponent } from './components/inventario/proveedores/proveedores.component';
 import { MercanciaComponent } from './components/inventario/mercancia/mercancia.component';
 import { EditartrabajadorComponent } from './components/trabajador/editartrabajador/editartrabajador.component';
-import { ListComponent } from './components/list/list.component';
+import { ListComponent } from './components/inventario/list/list.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'login',pathMatch:'full'},

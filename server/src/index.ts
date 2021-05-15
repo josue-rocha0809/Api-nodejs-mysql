@@ -1,6 +1,7 @@
 import express, {Application} from 'express';
 import indexRoutes from './routes/indexRoutes';
 import productsRoutes from './routes/productsRoutes';
+import providersRoutes from './routes/providersRoutes';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -21,11 +22,12 @@ class Server{
   routes():void{
   this.app.use('/',indexRoutes);
   this.app.use('/productos',productsRoutes);
+  this.app.use('/proveedores',providersRoutes);
   }
 
   start():void{
   this.app.listen(this.app.get('port'),()=>{
-      console.log('Server on port 3000',this.app.get('port'));
+      console.log('Server on port',this.app.get('port'));
   });
 }
 

@@ -1,0 +1,45 @@
+<app-nav></app-nav>
+
+<div class="box-list">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Proveedor</th>
+      <th scope="col">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td>
+      <ul  *ngFor="let pro of producto">
+        <li >
+         {{pro.nombre_pro}}
+        </li>
+      </ul>
+ 
+    </td>
+    <td>
+     <ul  *ngFor="let pro of producto">
+       <li >
+        {{pro.marca_pro}}
+       </li>
+     </ul>
+   </td>
+   <td>
+     <ul  *ngFor="let pro of producto">
+       <li >
+        {{pro.proveedor}}
+       </li>
+     </ul>
+   </td>
+   <td>
+     <ul  *ngFor="let pro of producto">
+       <li class="lis-item-precio" >
+        ${{pro.precio}}
+       </li>
+     </ul>
+   </td>
+  </tbody>
+</table>
+</div>
