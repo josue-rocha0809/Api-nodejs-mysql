@@ -1,16 +1,9 @@
 <app-nav></app-nav>
-
-<div class="content">
-  <div class="contact-wrapper">
-    <div class="contact-form">
+<div class="container">
+  <div class="row">
+    <div class="col">
       <h3 class="centrado">Proveedores</h3>
       <form>
-        <p>
-          <label>ID:</label>
-        </p>
-        <p>
-          <input type="number" name="ID" />
-        </p>
         <p>
           <label>Nombre del Proveedor:</label>
         </p>
@@ -42,65 +35,63 @@
           <p>
             <button type="submit" (click)='saveProvider()'>Guardar</button>
           </p>
-          <p>
-            <button type="submit">Eliminar</button>
-          </p>
         </div>
       </form>
     </div>
+    <div class="col">
+      <div class="box-list">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Proveedor</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Codigo Postal</th>
+              <th scope="col">Telefono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>
+              <ul  *ngFor="let pe of proveedores">
+                <li >
+                 {{pe.nombre_prove}}
+                </li>
+              </ul>
+         
+            </td>
+            <td>
+             <ul  *ngFor="let pe of proveedores">
+               <li >
+                {{pe.direccion_prove}}
+               </li>
+             </ul>
+           </td>
+           <td>
+             <ul  *ngFor="let pe of proveedores">
+               <li >
+                {{pe.cp_prove}}
+               </li>
+             </ul>
+           </td>
+           <td>
+             <ul  *ngFor="let pe of proveedores">
+               <li >
+                ${{pe.telefono_prove}}
+               </li>
+             </ul>
+           </td>
+           <td>
+            <ul  *ngFor="let pe of proveedores">
+              <li >
+                <button type="button" class="btn btn-danger" (click)="deleteProvider(pe.id)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                </li>
+              </ul>
+             </td>
+          </tbody>
+        </table>
+        </div>
+    </div>
   </div>
-</div>
 
 
-<div class="box-list">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Proveedor</th>
-        <th scope="col">Direccion</th>
-        <th scope="col">Codigo Postal</th>
-        <th scope="col">Telefono</th>
-      </tr>
-    </thead>
-    <tbody>
-      <td>
-        <ul  *ngFor="let pe of proveedores">
-          <li >
-           {{pe.nombre_prove}}
-          </li>
-        </ul>
-   
-      </td>
-      <td>
-       <ul  *ngFor="let pe of proveedores">
-         <li >
-          {{pe.direccion_prove}}
-         </li>
-       </ul>
-     </td>
-     <td>
-       <ul  *ngFor="let pe of proveedores">
-         <li >
-          {{pe.cp_prove}}
-         </li>
-       </ul>
-     </td>
-     <td>
-       <ul  *ngFor="let pe of proveedores">
-         <li >
-          ${{pe.telefono_prove}}
-         </li>
-       </ul>
-     </td>
-     <td>
-      <ul  *ngFor="let pe of proveedores">
-        <li >
-          <button type="button" class="btn btn-danger" (click)="deleteProvider(pe.id)">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-          </li>
-        </ul>
-       </td>
-    </tbody>
-  </table>
-  </div>

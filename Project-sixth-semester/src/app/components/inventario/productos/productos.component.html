@@ -1,120 +1,110 @@
 <app-nav></app-nav>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="centrado">Productos</h3>
+      <form>
+        <p>
+          <label>Nombre del Porducto:</label>
+        </p>
+        <p>
+          <input type="text" name="Nombre" [(ngModel)]="produ.nombre_pro" />
+        </p>
+        <p>
+          <label>Marca:</label>
+        </p>
+        <p>
+          <input type="text" name="marca" [(ngModel)]="produ.marca_pro" />
+        </p>
+        <p>
+          <label>Proveedor:</label>
+        </p>
 
-<div class="content">
-        <div class="contact-wrapper">
-            <div class="contact-form">
-                  <h3 class="centrado">Productos</h3>
-                    <form>
-                        <p>
-                            <label>ID:</label>
-                        </p>
-                        <p>
-                            <input type='number' name="ID">
-                        </p>
-                        <p>
-                            <label>Nombre del Porducto:</label>
-                        </p>
-                        <p>
-                            <input type='text' name='Nombre' [(ngModel)]="produ.nombre_pro">
-                        </p>
-                        <p>
-                            <label>Marca:</label>
-                        </p>
-                        <p>
-                            <input type="text" name="marca" [(ngModel)]="produ.marca_pro">
-                        </p>
-                        <p>
-                            <label>Proveedor:</label>
-                        </p>
-                        
-                          <select  [(ngModel)]="opcionSeleccionado" (change)="capturar()" class="form-select" aria-label="Default select example" >
-                            <option value="pe.id" selected="selected" *ngFor="let pe of proveedores" >
-                              {{pe.nombre}}
-                            </option>
-                          </select>
-                          
-                            
-                        
-                        <p>
-                            <label>Precio:</label>
-                        </p>
-                        <p>
-                            <input type='tel' name="precio"[(ngModel)]="produ.precio">
-                        </p>
-                        <div class="tres">
-                            <p>
-                                <button type="reset" >
-                                    Limpiar
-                                </button>
-                            </p>
-                            <p>
-                                <button type="submit" (click)="saveProduct()">
-                                    Guardar
-                                </button>
-                            </p>
-                            <p>
-                                <button type="submit" >
-                                    Eliminar
-                                </button>
-                            </p>
-                        </div>
-                    </form>
-            </div>
+        <select
+          [(ngModel)]="opcionSeleccionado"
+          (change)="capturar()"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option
+            value="pe.id"
+            selected="selected"
+            *ngFor="let pe of proveedores"
+          >
+            {{ pe.nombre }}
+          </option>
+        </select>
+
+        <p>
+          <label>Precio:</label>
+        </p>
+        <p>
+          <input type="tel" name="precio" [(ngModel)]="produ.precio" />
+        </p>
+        <div class="tres">
+          <p>
+            <button type="reset">Limpiar</button>
+          </p>
+          <p>
+            <button type="submit" (click)="saveProduct()">Guardar</button>
+          </p>
         </div>
+      </form>
+    </div>
+    <div class="col">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Proveedor</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li>
+                  {{ pro.nombre_pro }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li>
+                  {{ pro.marca_pro }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li>
+                  {{ pro.proveedor }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li class="lis-item-precio">${{ pro.precio }}</li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="deleteProduct(pro.id)"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </li>
+              </ul>
+            </td>
+          </tbody>
+        </table>
       </div>
-
-      
-              
-                 <div class="box-list">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Proveedor</th>
-                        <th scope="col">Precio</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <td>
-                        <ul  *ngFor="let pro of productos">
-                          <li >
-                           {{pro.nombre_pro}}
-                          </li>
-                        </ul>
-                   
-                      </td>
-                      <td>
-                       <ul  *ngFor="let pro of productos">
-                         <li >
-                          {{pro.marca_pro}}
-                         </li>
-                       </ul>
-                     </td>
-                     <td>
-                       <ul  *ngFor="let pro of productos">
-                         <li >
-                          {{pro.proveedor}}
-                         </li>
-                       </ul>
-                     </td>
-                     <td>
-                       <ul  *ngFor="let pro of productos">
-                         <li class="lis-item-precio" >
-                          ${{pro.precio}}
-                         </li>
-                       </ul>
-                     </td>
-                     <td>
-                      <ul  *ngFor="let pro of productos">
-                        <li >
-                          <button type="button" class="btn btn-danger" (click)="deleteProduct(pro.id)">
-                            <i class="fas fa-trash-alt"></i>
-                          </button>
-                          </li>
-                        </ul>
-                       </td>
-                    </tbody>
-                  </table>
-                  </div>
-          
+    </div>
+  </div>
+</div>
