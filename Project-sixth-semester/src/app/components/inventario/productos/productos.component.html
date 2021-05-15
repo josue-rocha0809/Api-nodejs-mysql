@@ -20,18 +20,9 @@
           <label>Proveedor:</label>
         </p>
 
-        <select
-          [(ngModel)]="opcionSeleccionado"
-          (change)="capturar()"
-          class="form-select"
-          aria-label="Default select example"
-        >
-          <option
-            value="pe.id"
-            selected="selected"
-            *ngFor="let pe of proveedores"
-          >
-            {{ pe.nombre }}
+        <select class="form-select" aria-label="Default select example">
+          <option *ngFor="let pe of proveedores" [value]="pe.id" >
+            {{pe.nombre_prove}}
           </option>
         </select>
 

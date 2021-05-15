@@ -11,7 +11,16 @@ import {ProductosService} from '../../../services/productos.service';
 })
 export class ProductosComponent implements OnInit {
   productos:any=[];
-  proveedores: any = [];
+  proveedores: Providers[] = [
+    {
+      id:0,
+      nombre_prove: '',
+      direccion_prove: '',
+      cp_prove: 0,
+      telefono_prove: 0,
+    }
+  ];
+
   produ:Products={
     id:0,
     nombre_pro:'',
@@ -19,24 +28,14 @@ export class ProductosComponent implements OnInit {
     proveedor:'',
     precio:0,
   };
-  prove: Providers = {
-    id:0,
-    nombre_prove: '',
-    direccion_prove: '',
-    cp_prove: 0,
-    telefono_prove: 0,
-  };
-
   
-  // Seleccionamos o iniciamos el valor '0' del <select>
-  opcionSeleccionado: string  = '0';
-  verSeleccion: string        = '';
-
+  
   constructor(private productService: ProductosService,
               private providerService: ProveedoresService) { }
 
   ngOnInit(): void {
    this.getProduct()
+   this.getProvider();
   }
 
   getProduct(){
@@ -77,9 +76,5 @@ export class ProductosComponent implements OnInit {
     )
   }
 
-  capturar() {
-    // Pasamos el valor seleccionado a la variable verSeleccion
-    this.verSeleccion = this.opcionSeleccionado;
-  }
-
+  
 }
