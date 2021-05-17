@@ -3,7 +3,7 @@ import { Products } from 'src/app/models/products';
 import { Providers } from 'src/app/models/providers';
 import { ProveedoresService } from 'src/app/services/proveedores.service';
 import {ProductosService} from '../../../services/productos.service';
-
+import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -28,14 +28,31 @@ export class ProductosComponent implements OnInit {
     proveedor:'',
     precio:0,
   };
+
+  edit:boolean=false;
   
   
   constructor(private productService: ProductosService,
-              private providerService: ProveedoresService) { }
+              private providerService: ProveedoresService,
+              private activedRoute: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
-   this.getProduct()
-   this.getProvider();
+   
+   
+   const params= this.activedRoute.snapshot.params;
+    if(params.id){
+      this.productService.getProduct(params.id)
+      .subscribe(
+        res =>{
+          console.log(res);
+          this.produ=res;
+          this.edit=true;
+        },
+        err=> console.error(err)
+      )
+    }
+    this.getProvider();  
   }
 
   getProduct(){
@@ -50,21 +67,28 @@ export class ProductosComponent implements OnInit {
   }
 
   saveProduct(){
+    
     delete this.produ.id;
   this.productService.saveProduct(this.produ)
   .subscribe(
     res=>{
    console.log(res);
-   this.getProduct();
+   this.router.navigate(['/invantario']);
     }
   );
   }
 
-  productinfo(){
-    this.productService.getProducts().subscribe(
-      res=>(this.productos=res)
-    );
+  updateProduct(){
+    this.productService.updateProduct(this.produ.id!, this.produ)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => console.log(err)
+    )
   }
+
+  
 
   deleteProduct(id: string){
     this.productService.deleteProduct(id).subscribe(
@@ -75,6 +99,8 @@ export class ProductosComponent implements OnInit {
       err => console.log(err)
     )
   }
+
+  
 
   
 }

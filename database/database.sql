@@ -19,3 +19,19 @@ cp_prove int not null,
 telefono_prove bigint);
 
 DESCRIBE proveedores;
+
+create table usuarios(
+    id int not null auto_increment primary key,
+    nombre varchar(100) not null,
+    contra varchar(100) not null 
+    
+
+);
+
+apellidos varchar(100) not null,
+    direccion varchar(50) not null,
+    cp int not null,
+    telefono bigint not null,
+    cargo varchar(40) not null,
+    horario varchar(40) not null,
+    correo varchar(100) not null,

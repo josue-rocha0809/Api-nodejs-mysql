@@ -1,84 +1,28 @@
-
-<header>
-    <input type="checkbox" id="btn-menu">
-    <label for="btn-menu"><img src="./assets/menu.png" alt=""></label>
-  
-    <nav class="menu">
-      <ul>
-        <li><a href="./infoTra">Informacion de Trabajadores</a></li>
-        <li><a href="./editarTra">Editar Trabajador</a></li>
-      </ul>
-    </nav>
-</header>
-
-    <div class="content">
-        <div class="contact-wrapper">
-            <div class="contact-form">
-                  <h3 class="centrado">Informacion de Trabajadores</h3>
-                    <form>
-                        <p>
-                            <label>ID Trabajador</label>
-                        </p>
-                        <p>
-                            <input type='number' name="ID">
-                        </p>
-                        <p>
-                            <label>Nombre</label>
-                        </p>
-                        <p>
-                            <input type='text' name='Nombre'>
-                        </p>
-                        <p>
-                            <label>Primer Apellido</label>
-                        </p>
-                        <p>
-                            <input type="text" name="PrimerApellido">
-                        </p>
-                        <p>
-                            <label>Segundo Apellido</label>
-                        </p>
-                        <p>
-                            <input type="text" name="SegundoApellido">
-                        </p>
-                        <p>
-                            <label>Direccion</label>
-                        </p>
-                        <p>
-                            <input type="text" name="Direccion">
-                        </p>
-                        <p>
-                            <label>Codigo Postal</label>
-                        </p>
-                        <p>
-                            <input type="text" name="CodigoPostal">
-                        </p>
-                        <p>
-                            <label>Telefono</label>
-                        </p>
-                        <p>
-                            <input type='tel' name="Telefono">
-                        </p>
-                        <p>
-                            <label>Cargo</label>
-                        </p>
-                        <p>
-                            <input type="text" name="Cargo">
-                        </p>
-                        <p>
-                            <label>Horario</label>
-                        </p>
-                        <p>
-                            <input type="text" name="horario">
-                        </p>
-                        <p>
-                            <label>Correo</label>
-                        </p>
-                        <p>
-                            <input type="email" name='email'>
-                        </p>
-                    </form>
-            </div>
+<app-nav></app-nav>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action='/signup' class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="validationCustom01" name='nombre'   [(ngModel)]="aute.nombre">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
-      </div>
-
-  
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">contraseña</label>
+          <input type="text" class="form-control" id="validationCustom01" name='contra'  [(ngModel)]="aute.contra">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit" (click)='saveAut()'>Agregar Trabajador</button>
+        </div>
+      </form>
+    </div>
+    <div class="col">2 of 2</div>
+  </div>
+</div>

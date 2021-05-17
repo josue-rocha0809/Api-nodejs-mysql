@@ -23,7 +23,7 @@ export class ProductosService {
   saveProduct(product:Products){
     return  this.http.post(`${this.API_URI}/productos`,product);
   }
-  updateProduct(id: String,updateProduct:Products):Observable<Products>{
+  updateProduct(id: String|number,updateProduct:Products):Observable<Products>{
     return this.http.put(`${this.API_URI}/productos/${id}`, updateProduct);
   }
 

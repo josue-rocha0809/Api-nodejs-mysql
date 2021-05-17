@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Authentication } from 'src/app/models/authentication';
+import {AutenticacionService} from '../../../services/autenticacion.service'
 @Component({
   selector: 'app-infotrabajadores',
   templateUrl: './infotrabajadores.component.html',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfotrabajadoresComponent implements OnInit {
 
-  constructor() { }
+  
+
+  aute: Authentication={
+    id:0,
+    nombre:'',
+    contra:''
+  }
+  constructor(private autheticationService: AutenticacionService) { }
 
   ngOnInit(): void {
+  }
+
+  saveAut(){
+    delete this.aute.id;
+    this.autheticationService.saveAut(this.aute)
+  .subscribe(
+    res=>{
+   console.log(res);
+   
+    }
+  );
   }
 
 }

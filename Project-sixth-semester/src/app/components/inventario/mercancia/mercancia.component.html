@@ -43,6 +43,52 @@
         </p>
       </form>
     </div>
-    <div class="col">2 of 2</div>
+    <div class="col">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Proveedor</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li>
+                  {{ pro.nombre_pro }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li>
+                  {{ pro.marca_pro }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li>
+                  {{ pro.proveedor }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of productos">
+                <li class="lis-item-precio">${{ pro.precio }}</li>
+              </ul>
+            </td>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+

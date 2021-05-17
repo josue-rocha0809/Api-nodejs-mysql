@@ -7,7 +7,6 @@ import { ProductosComponent } from './components/inventario/productos/productos.
 import { InfotrabajadoresComponent } from './components/trabajador/infotrabajadores/infotrabajadores.component';
 import { ProveedoresComponent } from './components/inventario/proveedores/proveedores.component';
 import { MercanciaComponent } from './components/inventario/mercancia/mercancia.component';
-import { EditartrabajadorComponent } from './components/trabajador/editartrabajador/editartrabajador.component';
 import { ListComponent } from './components/inventario/list/list.component';
 
 const routes: Routes = [
@@ -18,9 +17,10 @@ const routes: Routes = [
   {path: 'productos', component:ProductosComponent},
   {path: 'proveedores', component:ProveedoresComponent},
   {path: 'mercanciaEntrante', component:MercanciaComponent},
-  {path: 'infoTra', component: InfotrabajadoresComponent},
-  {path: 'editarTra', component:EditartrabajadorComponent},
+  {path: 'signup', component: InfotrabajadoresComponent},
   {path: 'inventario', component:ListComponent},
+  {path: 'productos/editar/:id',component:ProductosComponent}
+
 
 ];
 

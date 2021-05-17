@@ -2,6 +2,8 @@ import express, {Application} from 'express';
 import indexRoutes from './routes/indexRoutes';
 import productsRoutes from './routes/productsRoutes';
 import providersRoutes from './routes/providersRoutes';
+import authenticationRoutes from './routes/authenticationRoutes';
+const passport= require('passport');
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -9,6 +11,7 @@ class Server{
      public app:Application;
     constructor(){
        this.app=express();
+       require('./lib/passport');
        this.config();
        this.routes();
     }
@@ -23,6 +26,9 @@ class Server{
   this.app.use('/',indexRoutes);
   this.app.use('/productos',productsRoutes);
   this.app.use('/proveedores',providersRoutes);
+  this.app.use('/signup',authenticationRoutes);
+  this.app.use(passport.initialize());
+  this.app.use(passport.session());
   }
 
   start():void{

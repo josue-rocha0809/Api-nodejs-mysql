@@ -7,11 +7,14 @@ const express_1 = __importDefault(require("express"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const productsRoutes_1 = __importDefault(require("./routes/productsRoutes"));
 const providersRoutes_1 = __importDefault(require("./routes/providersRoutes"));
+const authenticationRoutes_1 = __importDefault(require("./routes/authenticationRoutes"));
+const passport = require('passport');
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.app = express_1.default();
+        require('./lib/passport');
         this.config();
         this.routes();
     }
@@ -26,6 +29,9 @@ class Server {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/productos', productsRoutes_1.default);
         this.app.use('/proveedores', providersRoutes_1.default);
+        this.app.use('/signup', authenticationRoutes_1.default);
+        this.app.use(passport.initialize());
+        this.app.use(passport.session());
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

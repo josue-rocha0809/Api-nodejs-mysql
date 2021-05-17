@@ -14,7 +14,6 @@ import { InfotrabajadoresComponent } from './components/trabajador/infotrabajado
 import { ProductosComponent } from './components/inventario/productos/productos.component';
 import { ProveedoresComponent } from './components/inventario/proveedores/proveedores.component';
 import { MercanciaComponent } from './components/inventario/mercancia/mercancia.component';
-import { EditartrabajadorComponent } from './components/trabajador/editartrabajador/editartrabajador.component';
 
 import { ProductosService } from './services/productos.service';
 import { ListComponent } from './components/inventario/list/list.component';
@@ -32,7 +31,6 @@ import { NavComponent } from './nav/nav.component';
     ProveedoresComponent,
     InfotrabajadoresComponent,
     MercanciaComponent,
-    EditartrabajadorComponent,
     ListComponent,
     NavComponent,
   ],

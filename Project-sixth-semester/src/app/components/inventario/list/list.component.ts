@@ -14,6 +14,23 @@ export class ListComponent implements OnInit {
   constructor(private productService:ProductosService) { }
 
   ngOnInit(){
-    this.productService.getProducts().subscribe(res=>(this.producto = res));
+    this.getProduct();
+  }
+  
+  getProduct(){
+    this.productService.getProducts().subscribe(
+      res=>(this.producto=res)
+    );
+  }
+  
+
+  deleteProduct(id: string){
+    this.productService.deleteProduct(id).subscribe(
+      res => {
+        console.log(res);
+        this.getProduct();
+      },
+      err => console.log(err)
+    )
   }
 }

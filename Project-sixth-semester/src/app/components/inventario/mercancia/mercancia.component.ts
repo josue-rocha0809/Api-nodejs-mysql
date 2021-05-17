@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Products } from 'src/app/models/products';
 
 @Component({
   selector: 'app-mercancia',
@@ -6,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mercancia.component.css']
 })
 export class MercanciaComponent implements OnInit {
+
+  productos:any=[];
+
+  produ:Products={
+    id:0,
+    nombre_pro:'',
+    marca_pro:'',
+    proveedor:'',
+    precio:0,
+  };
 
   constructor() { }
 

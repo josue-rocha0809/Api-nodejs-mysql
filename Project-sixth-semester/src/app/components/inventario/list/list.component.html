@@ -1,45 +1,78 @@
 <app-nav></app-nav>
 
 <div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Producto</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Proveedor</th>
-      <th scope="col">Precio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <td>
-      <ul  *ngFor="let pro of producto">
-        <li >
-         {{pro.nombre_pro}}
-        </li>
-      </ul>
- 
-    </td>
-    <td>
-     <ul  *ngFor="let pro of producto">
-       <li >
-        {{pro.marca_pro}}
-       </li>
-     </ul>
-   </td>
-   <td>
-     <ul  *ngFor="let pro of producto">
-       <li >
-        {{pro.proveedor}}
-       </li>
-     </ul>
-   </td>
-   <td>
-     <ul  *ngFor="let pro of producto">
-       <li class="lis-item-precio" >
-        ${{pro.precio}}
-       </li>
-     </ul>
-   </td>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Producto</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Proveedor</th>
+        <th scope="col">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>
+        <ul *ngFor="let pro of producto">
+          <li>
+            {{ pro.nombre_pro }}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul *ngFor="let pro of producto">
+          <li>
+            {{ pro.marca_pro }}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul *ngFor="let pro of producto">
+          <li>
+            {{ pro.proveedor }}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul *ngFor="let pro of producto">
+          <li class="lis-item-precio">${{ pro.precio }}</li>
+        </ul>
+      </td>
+      <td>
+        <ul *ngFor="let pro of producto">
+          <li>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteProduct(pro.id)"
+            >
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul *ngFor="let pro of producto">
+          <li>
+            <button
+              type="button"
+              class="btn btn-primary"
+              [routerLink]="['/productos/editar',pro.id]"
+              
+            >
+            <i class="far fa-edit"></i>
+            </button>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <button type="button" class="btn btn-success" [routerLink]="['/productos']">
+            <i class="fas fa-plus-circle"></i>
+            </button>
+          </li>
+        </ul>
+      </td>
+    </tbody>
+  </table>
 </div>
