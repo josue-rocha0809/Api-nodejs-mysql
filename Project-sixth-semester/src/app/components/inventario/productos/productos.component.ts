@@ -22,10 +22,10 @@ export class ProductosComponent implements OnInit {
   ];
 
   produ:Products={
-    id:0,
+    id:null,
     nombre_pro:'',
     marca_pro:'',
-    proveedor:'',
+    id_proveedor:0,
     precio:0,
   };
 
@@ -68,21 +68,23 @@ export class ProductosComponent implements OnInit {
 
   saveProduct(){
     
-    delete this.produ.id;
+    
   this.productService.saveProduct(this.produ)
   .subscribe(
-    res=>{
-   console.log(res);
-   this.router.navigate(['/invantario']);
-    }
-  );
-  }
+    res => {
+      console.log(res);
+      this.router.navigate(['/inventario']);
+    },
+    err => console.error(err)
+  )
+}
 
   updateProduct(){
     this.productService.updateProduct(this.produ.id!, this.produ)
     .subscribe(
       res => {
         console.log(res);
+        this.router.navigate(['/inventario']);
       },
       err => console.log(err)
     )

@@ -11,10 +11,10 @@ export class MercanciaComponent implements OnInit {
   productos:any=[];
 
   produ:Products={
-    id:0,
+    id:null,
     nombre_pro:'',
     marca_pro:'',
-    proveedor:'',
+    id_proveedor:0,
     precio:0,
   };
 

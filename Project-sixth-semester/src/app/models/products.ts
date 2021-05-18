@@ -1,7 +1,7 @@
 export interface Products{
-  id?: number;
+  id?:null;
   nombre_pro?:String;
   marca_pro?:String;
-  proveedor?:String;
+  id_proveedor?:number;
   precio?:number;
 }

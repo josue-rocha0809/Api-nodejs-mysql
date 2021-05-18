@@ -20,9 +20,9 @@
           <label>Proveedor:</label>
         </p>
 
-        <select class="form-select" aria-label="Default select example">
-          <option *ngFor="let pe of proveedores" [value]="pe.id" >
-            {{pe.nombre_prove}}
+        <select class="form-select" aria-label="Default select example"  [(ngModel)]="produ.id_proveedor" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let pe of proveedores" [value]='pe.id'  >
+            {{pe.id}}
           </option>
         </select>
 
@@ -37,7 +37,7 @@
             <button type="reset">Limpiar</button>
           </p>
           <p>
-            <button type="submit" (click)="edit ? updateProduct() :  saveProduct()">Guardar</button>
+            <button type="submit" (click)=" edit ? updateProduct() : saveProduct()">Guardar</button>
           </p>
         </div>
       </form>
