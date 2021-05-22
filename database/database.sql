@@ -35,3 +35,10 @@ apellidos varchar(100) not null,
     cargo varchar(40) not null,
     horario varchar(40) not null,
     correo varchar(100) not null,
+    
+create table users(
+    id int not null auto_increment primary key,
+    username varchar(30) not null,
+    password varchar(30) not null,
+    role varchar (30) not null, 
+);    

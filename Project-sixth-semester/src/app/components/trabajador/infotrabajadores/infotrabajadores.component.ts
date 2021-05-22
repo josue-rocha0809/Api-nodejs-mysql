@@ -8,7 +8,7 @@ import {AutenticacionService} from '../../../services/autenticacion.service'
 })
 export class InfotrabajadoresComponent implements OnInit {
 
-  
+
 
   aute: Authentication={
     id:0,
@@ -20,15 +20,6 @@ export class InfotrabajadoresComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveAut(){
-    delete this.aute.id;
-    this.autheticationService.saveAut(this.aute)
-  .subscribe(
-    res=>{
-   console.log(res);
-   
-    }
-  );
-  }
+ 
 
 }

@@ -8,8 +8,11 @@ class ProductsControllers{
     }
 
     public async getOne(req:Request,res:Response):Promise<any>{
+      console.log(req.params);
       const { id }= req.params;
+      console.log('id='+id);
       const products=await pool.query('SELECT * FROM productos  WHERE id = ?',[id]);
+      console.log(products);
      if(products.length>0){
        return res.json(products[0]);
      }
@@ -23,6 +26,7 @@ class ProductsControllers{
     
     public async update(req:Request,res:Response):Promise<void>{
       const {id}=req.params;
+  
       await pool.query('UPDATE productos set ? WHERE id= ?',[req.body, id]);
       res.json({message:'the product was updated'})
     

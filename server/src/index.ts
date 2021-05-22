@@ -6,6 +6,9 @@ import authenticationRoutes from './routes/authenticationRoutes';
 const passport= require('passport');
 import morgan from 'morgan';
 import cors from 'cors';
+import usersRoutes  from './routes/usersRoutes';
+import UsuarioRoutes from './routes/UsuarioRoutes';
+
 
 class Server{
      public app:Application;
@@ -25,8 +28,10 @@ class Server{
   routes():void{
   this.app.use('/',indexRoutes);
   this.app.use('/productos',productsRoutes);
+  this.app.use('/users',usersRoutes);
   this.app.use('/proveedores',providersRoutes);
   this.app.use('/signup',authenticationRoutes);
+  this.app.use('/usuario',UsuarioRoutes);
   this.app.use(passport.initialize());
   this.app.use(passport.session());
   }

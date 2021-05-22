@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AdminComponent } from 'src/app/components/administrador/admin/admin.component';
+
+import { ActivatedRoute, Router } from '@angular/router';
+import { Users } from 'src/app/models/users';
+
+import { AutenticacionService } from 'src/app/services/autenticacion.service';
+import {UsuariosService} from '../../services/usuarios.service'
+
+
 //import { loginService } from './login.service';
 
 @Component({
@@ -10,22 +15,61 @@ import { AdminComponent } from 'src/app/components/administrador/admin/admin.com
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+ inputUsername='';
+ inputPassword='';
+  User:any=[];
+
+  user ={
+    username:null,
+    password:null,
+    role:null,
+  }
+
+  use:Users={
+    id:0,
+    username:'',
+    password:'',
+    role:'',
+  };
 
   //constructor(private loginService: loginService) { }
-  constructor(private router:Router){
+  constructor(private router:Router,
+              private authService:AutenticacionService,
+              private activedRoute: ActivatedRoute,
+              private usuarioService:UsuariosService
+              )
+              {
 
   }
   ngOnInit(): void {
+
+      this.usuarioService.getUsuarios()
+      .subscribe(
+        res =>{
+          console.log(res);
+          this.User=res;
+        },
+        err=> console.error(err)
+      )
+
   }
 
-  onLogin(form: NgForm){
-    const email = form.value.email;
-    const password = form.value.password;
-    if(email=='josue.rocha0809@gmail.com'){
-    this.router.navigate(['administrador']);
-    }else{
-      this.router.navigate(['cajero']);
-    }
+ // getProduct(){
+   // this.usuarioService.getOneUser().subscribe(
+    //  res=>(this.User=res)
+    //);
+  //}
+
+
+  onLogin(){
+  console.log(this.user);
+  this.authService.singin(this.user).subscribe( (res:any)=>{
+    console.log(res);
+    localStorage.setItem('token',res.token);
+    if(this.user.role=='admin'){
+      this.router.navigate(['administrador']);
+    }else this.router.navigate(['cajero']);
+  })
   }
 
 }
