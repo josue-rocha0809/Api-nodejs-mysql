@@ -30,14 +30,14 @@ create table entradas(
     id int not null auto_increment primary key,
     id_producto int not null,
     cantidad_de_ingreso int not null,
-    fecha date,
+    fecha fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     foreign key (id_producto) references productos(id)
     );
 
 create table ventas(
     id int not null auto_increment primary key,
     cantidad_de_productos int not null,
-    fecha date,
+    fecha fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total bigint
 );
 

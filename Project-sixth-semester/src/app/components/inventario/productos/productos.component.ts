@@ -67,8 +67,6 @@ export class ProductosComponent implements OnInit {
   }
 
   saveProduct(){
-    
-    
   this.productService.saveProduct(this.produ)
   .subscribe(
     res => {

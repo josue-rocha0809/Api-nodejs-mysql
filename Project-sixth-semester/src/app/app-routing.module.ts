@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'cajero',component:CajeroComponent},
   {path: 'productos', component:ProductosComponent},
   {path: 'proveedores', component:ProveedoresComponent},
-  {path: 'mercanciaEntrante', component:MercanciaComponent},
+  {path: 'entradas', component:MercanciaComponent},
   {path: 'signup', component: InfotrabajadoresComponent},
   {path: 'inventario', component:ListComponent},
   {path: 'productos/editar/:id',component:ProductosComponent}

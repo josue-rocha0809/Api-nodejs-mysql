@@ -8,38 +8,26 @@
           <label>Nombre del Producto:</label>
         </p>
         <p>
-          <input type="text" name="Nombre" />
-        </p>
-        <p>
-          <label>Precio:</label>
-        </p>
-        <p>
-          <input type="text" name="precio" />
-        </p>
-        <p>
-          <label>Marca:</label>
-        </p>
-        <p>
-          <input type="text" name="marca" />
-        </p>
-        <p>
-          <label>Proveedor:</label>
-        </p>
-        <p>
-          <input type="tel" name="proveedor" />
+          
+          <select class="form-select" aria-label="Default select example"  [(ngModel)]="entra.id_producto" [ngModelOptions]="{standalone: true}">
+            <option disabled select>Producto</option>
+            <option *ngFor="let pro of productos" value={{pro.id}}  >
+              {{pro.nombre_pro}}
+            </option>
+          </select>
         </p>
         <p>
           <label>Cantidad Ingreso:</label>
         </p>
         <p>
-          <input type="text" name="cantidadIngreso" />
+          <input type="number" name="cantidadIngreso" autocomplete="off" [(ngModel)]="entra.cantidad_de_ingreso" />
         </p>
 
         <p>
           <button type="reset">Limpiar</button>
         </p>
         <p>
-          <button type="submit">Guardar</button>
+          <button type="submit"  (click)="saveResupply()"(click)="getProduct()">Guardar</button>
         </p>
       </form>
     </div>
@@ -49,39 +37,32 @@
           <thead>
             <tr>
               <th scope="col">Producto</th>
-              <th scope="col">Marca</th>
-              <th scope="col">Proveedor</th>
-              <th scope="col">Precio</th>
+              <th scope="col">Cantidad de Ingreso</th>
+              <th scope="col">Fecha</th>
             </tr>
           </thead>
           <tbody>
-            <td>
-              <ul *ngFor="let pro of productos">
-                <li>
-                  {{ pro.nombre_pro }}
+            <td  >
+              <ul *ngFor="let entra of entradas" >
+                <li >
+                  {{ entra.id_producto }}
                 </li>
               </ul>
             </td>
             <td>
-              <ul *ngFor="let pro of productos">
+              <ul *ngFor="let entra of entradas">
                 <li>
-                  {{ pro.marca_pro }}
+                  {{ entra.cantidad_de_ingreso}}
                 </li>
               </ul>
             </td>
             <td>
-              <ul *ngFor="let pro of productos">
+              <ul *ngFor="let entra of entradas">
                 <li>
-                  {{ pro.proveedor }}
+                  {{ entra.fecha}}
                 </li>
               </ul>
             </td>
-            <td>
-              <ul *ngFor="let pro of productos">
-                <li class="lis-item-precio">${{ pro.precio }}</li>
-              </ul>
-            </td>
-            
           </tbody>
         </table>
       </div>

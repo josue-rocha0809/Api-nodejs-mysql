@@ -13,7 +13,7 @@ class  ProductsRoutes{
         this.router.post('/',productController.create); //crear producto
         this.router.put('/:id',productController.update); // editar producto
         this.router.delete('/:id',productController.delete);// eliminar producto
-    
+        
     }
 
 }

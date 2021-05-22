@@ -8,21 +8,22 @@
           <label>Nombre del Porducto:</label>
         </p>
         <p>
-          <input type="text" name="Nombre" [(ngModel)]="produ.nombre_pro" />
+          <input type="text" name="Nombre" autocomplete="off" [(ngModel)]="produ.nombre_pro" />
         </p>
         <p>
           <label>Marca:</label>
         </p>
         <p>
-          <input type="text" name="marca" [(ngModel)]="produ.marca_pro" />
+          <input type="text" name="marca" autocomplete="off" [(ngModel)]="produ.marca_pro" />
         </p>
         <p>
           <label>Proveedor:</label>
         </p>
 
         <select class="form-select" aria-label="Default select example"  [(ngModel)]="produ.id_proveedor" [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let pe of proveedores" [value]='pe.id'  >
-            {{pe.id}}
+          <option disabled select>Proveedor</option>
+          <option *ngFor="let pe of proveedores" value={{pe.id}}  >
+            {{pe.nombre_prove}}
           </option>
         </select>
 
@@ -30,7 +31,7 @@
           <label>Precio:</label>
         </p>
         <p>
-          <input type="tel" name="precio" [(ngModel)]="produ.precio" />
+          <input type="tel" name="precio" autocomplete="off" [(ngModel)]="produ.precio" />
         </p>
         <div class="tres">
           <p>
