@@ -22,8 +22,11 @@ class ProductsControllers {
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.params);
             const { id } = req.params;
+            console.log('id=' + id);
             const products = yield database_1.default.query('SELECT * FROM productos  WHERE id = ?', [id]);
+            console.log(products);
             if (products.length > 0) {
                 return res.json(products[0]);
             }

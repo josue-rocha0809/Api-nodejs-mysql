@@ -8,20 +8,20 @@ import { InfotrabajadoresComponent } from './components/trabajador/infotrabajado
 import { ProveedoresComponent } from './components/inventario/proveedores/proveedores.component';
 import { MercanciaComponent } from './components/inventario/mercancia/mercancia.component';
 import { ListComponent } from './components/inventario/list/list.component';
+import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard';
 
 const routes: Routes = [
   {path: '', redirectTo:'login',pathMatch:'full'},
-  {path: 'login', component: LoginComponent },
-  {path: 'administrador',component:AdminComponent},
-  {path: 'cajero',component:CajeroComponent},
-  {path: 'productos', component:ProductosComponent},
-  {path: 'proveedores', component:ProveedoresComponent},
-  {path: 'entradas', component:MercanciaComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'administrador',component:AdminComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
+  {path: 'cajero',component:CajeroComponent,canActivate:[AuthGuard] },
+  {path: 'productos', component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}} ,
+  {path: 'proveedores', component:ProveedoresComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'} },
+  {path: 'entradas', component:MercanciaComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'} },
   {path: 'signup', component: InfotrabajadoresComponent},
-  {path: 'inventario', component:ListComponent},
-  {path: 'productos/editar/:id',component:ProductosComponent}
-
-
+  {path: 'inventario', component:ListComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
+  {path: 'productos/editar/:id',component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}}
 ];
 
 @NgModule({

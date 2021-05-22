@@ -12,6 +12,8 @@ const resupplyRoutes_1 = __importDefault(require("./routes/resupplyRoutes"));
 const passport = require('passport');
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
+const usersRoutes_1 = __importDefault(require("./routes/usersRoutes"));
+const UsuarioRoutes_1 = __importDefault(require("./routes/UsuarioRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -29,9 +31,14 @@ class Server {
     routes() {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/productos', productsRoutes_1.default);
+        this.app.use('/users', usersRoutes_1.default);
         this.app.use('/proveedores', providersRoutes_1.default);
         this.app.use('/signup', authenticationRoutes_1.default);
+<<<<<<< HEAD
         this.app.use('/entradas', resupplyRoutes_1.default);
+=======
+        this.app.use('/usuario', UsuarioRoutes_1.default);
+>>>>>>> 728318a5f6d483ccbfe5597c4f871aceab1ca761
         this.app.use(passport.initialize());
         this.app.use(passport.session());
     }

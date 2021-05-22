@@ -30,16 +30,16 @@ export class ProductosComponent implements OnInit {
   };
 
   edit:boolean=false;
-  
-  
+
+
   constructor(private productService: ProductosService,
               private providerService: ProveedoresService,
               private activedRoute: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
-   
-   
+
+
    const params= this.activedRoute.snapshot.params;
     if(params.id){
       this.productService.getProduct(params.id)
@@ -52,7 +52,7 @@ export class ProductosComponent implements OnInit {
         err=> console.error(err)
       )
     }
-    this.getProvider();  
+    this.getProvider();
   }
 
   getProduct(){
@@ -67,15 +67,18 @@ export class ProductosComponent implements OnInit {
   }
 
   saveProduct(){
+
+
+    delete this.produ.id;
   this.productService.saveProduct(this.produ)
   .subscribe(
-    res => {
-      console.log(res);
-      this.router.navigate(['/inventario']);
-    },
-    err => console.error(err)
-  )
-}
+    res=>{
+   console.log(res);
+   this.router.navigate(['/inventario']);
+    }
+  );
+  }
+
 
   updateProduct(){
     this.productService.updateProduct(this.produ.id!, this.produ)
@@ -88,7 +91,7 @@ export class ProductosComponent implements OnInit {
     )
   }
 
-  
+
 
   deleteProduct(id: string){
     this.productService.deleteProduct(id).subscribe(
@@ -100,7 +103,7 @@ export class ProductosComponent implements OnInit {
     )
   }
 
-  
 
-  
+
+
 }

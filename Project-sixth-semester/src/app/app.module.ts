@@ -16,9 +16,13 @@ import { ProveedoresComponent } from './components/inventario/proveedores/provee
 import { MercanciaComponent } from './components/inventario/mercancia/mercancia.component';
 
 import { ProductosService } from './services/productos.service';
+import {UsuariosService} from './services/usuarios.service'
 import { ListComponent } from './components/inventario/list/list.component';
 import { ProveedoresService } from './services/proveedores.service';
 import { NavComponent } from './nav/nav.component';
+
+import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt'
+
 
 
 @NgModule({
@@ -41,7 +45,7 @@ import { NavComponent } from './nav/nav.component';
     MatFormFieldModule,
     HttpClientModule,
   ],
-  providers: [ProductosService,ProveedoresService],
+  providers: [ProductosService,ProveedoresService,UsuariosService,JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
