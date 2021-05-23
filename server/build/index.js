@@ -9,6 +9,7 @@ const productsRoutes_1 = __importDefault(require("./routes/productsRoutes"));
 const providersRoutes_1 = __importDefault(require("./routes/providersRoutes"));
 const authenticationRoutes_1 = __importDefault(require("./routes/authenticationRoutes"));
 const resupplyRoutes_1 = __importDefault(require("./routes/resupplyRoutes"));
+const inventarioRoutes_1 = __importDefault(require("./routes/inventarioRoutes"));
 const passport = require('passport');
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
@@ -31,16 +32,12 @@ class Server {
     routes() {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/productos', productsRoutes_1.default);
+        this.app.use('/entradas', resupplyRoutes_1.default);
         this.app.use('/users', usersRoutes_1.default);
         this.app.use('/proveedores', providersRoutes_1.default);
         this.app.use('/signup', authenticationRoutes_1.default);
-<<<<<<< HEAD
-        this.app.use('/entradas', resupplyRoutes_1.default);
-=======
         this.app.use('/usuario', UsuarioRoutes_1.default);
->>>>>>> 728318a5f6d483ccbfe5597c4f871aceab1ca761
-        this.app.use(passport.initialize());
-        this.app.use(passport.session());
+        this.app.use('/inventario', inventarioRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

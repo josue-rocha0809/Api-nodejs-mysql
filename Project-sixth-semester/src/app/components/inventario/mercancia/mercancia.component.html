@@ -8,11 +8,15 @@
           <label>Nombre del Producto:</label>
         </p>
         <p>
-          
-          <select class="form-select" aria-label="Default select example"  [(ngModel)]="entra.id_producto" [ngModelOptions]="{standalone: true}">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            [(ngModel)]="entra.id_producto"
+            [ngModelOptions]="{ standalone: true }"
+          >
             <option disabled select>Producto</option>
-            <option *ngFor="let pro of productos" value={{pro.id}}  >
-              {{pro.nombre_pro}}
+            <option *ngFor="let pro of productos" value="{{ pro.id }}">
+              {{ pro.nombre_pro }}
             </option>
           </select>
         </p>
@@ -20,14 +24,21 @@
           <label>Cantidad Ingreso:</label>
         </p>
         <p>
-          <input type="number" name="cantidadIngreso" autocomplete="off" [(ngModel)]="entra.cantidad_de_ingreso" />
+          <input
+            type="number"
+            name="cantidadIngreso"
+            autocomplete="off"
+            [(ngModel)]="entra.cantidad_de_ingreso"
+          />
         </p>
 
         <p>
           <button type="reset">Limpiar</button>
         </p>
         <p>
-          <button type="submit"  (click)="saveResupply()"(click)="getProduct()">Guardar</button>
+          <button type="submit" (click)="saveResupply()" (click)="getProduct()">
+            Guardar
+          </button>
         </p>
       </form>
     </div>
@@ -42,9 +53,9 @@
             </tr>
           </thead>
           <tbody>
-            <td  >
-              <ul *ngFor="let entra of entradas" >
-                <li >
+            <td>
+              <ul *ngFor="let entra of entradas">
+                <li>
                   {{ entra.id_producto }}
                 </li>
               </ul>
@@ -52,14 +63,27 @@
             <td>
               <ul *ngFor="let entra of entradas">
                 <li>
-                  {{ entra.cantidad_de_ingreso}}
+                  {{ entra.cantidad_de_ingreso }}
                 </li>
               </ul>
             </td>
             <td>
               <ul *ngFor="let entra of entradas">
                 <li>
-                  {{ entra.fecha}}
+                  {{ entra.fecha }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let entra of entradas">
+                <li>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="deleteResupply(entra.id)"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
                 </li>
               </ul>
             </td>
@@ -69,7 +93,3 @@
     </div>
   </div>
 </div>
-
-
-
-

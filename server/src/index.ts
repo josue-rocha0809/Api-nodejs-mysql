@@ -4,12 +4,14 @@ import productsRoutes from './routes/productsRoutes';
 import providersRoutes from './routes/providersRoutes';
 import authenticationRoutes from './routes/authenticationRoutes';
 import resupplyRoutes from './routes/resupplyRoutes';
+import inventarioRoutes from './routes/inventarioRoutes';
 
 const passport= require('passport');
 import morgan from 'morgan';
 import cors from 'cors';
 import usersRoutes  from './routes/usersRoutes';
 import UsuarioRoutes from './routes/UsuarioRoutes';
+
 
 
 class Server{
@@ -30,19 +32,13 @@ class Server{
   routes():void{
   this.app.use('/',indexRoutes);
   this.app.use('/productos',productsRoutes);
-<<<<<<< HEAD
-  
-  this.app.use('/proveedores',providersRoutes);
-  this.app.use('/signup',authenticationRoutes);
   this.app.use('/entradas',resupplyRoutes);
-=======
   this.app.use('/users',usersRoutes);
   this.app.use('/proveedores',providersRoutes);
   this.app.use('/signup',authenticationRoutes);
   this.app.use('/usuario',UsuarioRoutes);
->>>>>>> 728318a5f6d483ccbfe5597c4f871aceab1ca761
-  this.app.use(passport.initialize());
-  this.app.use(passport.session());
+  this.app.use('/inventario',inventarioRoutes);
+  
   }
 
   start():void{

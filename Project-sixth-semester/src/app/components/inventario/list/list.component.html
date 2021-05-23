@@ -76,3 +76,33 @@
     </tbody>
   </table>
 </div>
+
+
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID de Producto</th>
+        <th scope="col">Existencias</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>
+        <ul *ngFor="let inv of inventario">
+          <li>
+            {{ inv.id_producto }}
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul *ngFor="let inv of inventario">
+          <li>
+            {{ inv.cantidad_disp }}
+          </li>
+        </ul>
+      </td>
+     
+    </tbody>
+  </table>
+</div>
