@@ -36,10 +36,22 @@ export class ListComponent implements OnInit {
   }
 
   deleteProduct(id: string) {
+    this.deleteInventario(id);
     this.productService.deleteProduct(id).subscribe(
       (res) => {
         console.log(res);
         this.getProduct();
+        this.getInventario();
+        
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  deleteInventario(id:String){
+    this .inventarioService.deleteInventario(id).subscribe(
+      (res) => {
+        console.log(res);
       },
       (err) => console.log(err)
     );

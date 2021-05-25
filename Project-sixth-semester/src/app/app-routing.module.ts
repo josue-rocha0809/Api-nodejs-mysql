@@ -10,6 +10,7 @@ import { MercanciaComponent } from './components/inventario/mercancia/mercancia.
 import { ListComponent } from './components/inventario/list/list.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
+import { VentaComponent } from './components/ventas/venta/venta.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'login',pathMatch:'full'},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'entradas', component:MercanciaComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'} },
   {path: 'signup', component: InfotrabajadoresComponent},
   {path: 'inventario', component:ListComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
-  {path: 'productos/editar/:id',component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}}
+  {path: 'productos/editar/:id',component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
+  {path:'venta', component:VentaComponent}
 ];
 
 @NgModule({

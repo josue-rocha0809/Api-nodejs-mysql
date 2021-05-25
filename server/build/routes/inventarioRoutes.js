@@ -15,6 +15,7 @@ class InventarioRoutes {
         this.router.get('/', inventarioControllers_1.default.list);
         this.router.post('/', inventarioControllers_1.default.create);
         this.router.put('/', inventarioControllers_1.default.update);
+        this.router.delete('/:id', inventarioControllers_1.default.delete);
     }
 }
 exports.inventarioRoutes = new InventarioRoutes();

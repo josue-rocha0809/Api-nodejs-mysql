@@ -15,13 +15,7 @@ export class ProductosComponent implements OnInit {
   productos: any = [];
 
   proveedores: Providers[] = [
-    {
-      id: 0,
-      nombre_prove: '',
-      direccion_prove: '',
-      cp_prove: 0,
-      telefono_prove: 0,
-    },
+    
   ];
 
   produ: Products = {

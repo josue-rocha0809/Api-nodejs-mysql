@@ -32,6 +32,14 @@ class InventarioControllers {
             res.json({ message: 'the product was updated' });
         });
     }
+    delete(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.params);
+            const { id } = req.params;
+            yield database_1.default.query('DELETE FROM inventario WHERE id_producto = ?', [id]);
+            res.json({ message: 'the product was deleted' });
+        });
+    }
 }
 const inventarioControllers = new InventarioControllers();
 exports.default = inventarioControllers;

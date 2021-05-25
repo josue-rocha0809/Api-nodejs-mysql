@@ -23,8 +23,13 @@ export class InventarioService {
   updateInventario(updateProduct:Products):Observable<Products>{
     return this.http.put(`${this.API_URI}/inventario`,updateProduct);
   }
-  
 
+  deleteInventario(id:String){
+    return  this.http.delete(`${this.API_URI}/inventario/${id}`);
+  }
+  
+  
+  
   
 
 
