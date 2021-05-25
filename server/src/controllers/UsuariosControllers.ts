@@ -17,6 +17,15 @@ class UsuarioControllers{
         }
         res.status(404).json({text:'the user dont exist'})
     }
+
+    public async createUser(req:Request,res:Response){
+        await pool.query('INSERT INTO users set ?',[req.body])
+        res.json({message:'User saved'});
+      }
+
+
+
+
     
 }
 const usuarioControllers = new UsuarioControllers();

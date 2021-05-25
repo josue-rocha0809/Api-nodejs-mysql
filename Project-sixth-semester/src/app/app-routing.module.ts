@@ -19,9 +19,9 @@ const routes: Routes = [
   {path: 'productos', component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}} ,
   {path: 'proveedores', component:ProveedoresComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'} },
   {path: 'entradas', component:MercanciaComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'} },
-  {path: 'signup', component: InfotrabajadoresComponent},
   {path: 'inventario', component:ListComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
-  {path: 'productos/editar/:id',component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}}
+  {path: 'productos/editar/:id',component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
+  {path: 'trabajadores', component:InfotrabajadoresComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
 ];
 
 @NgModule({

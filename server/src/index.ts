@@ -1,9 +1,11 @@
 import express, {Application} from 'express';
+import path from 'path';
 import indexRoutes from './routes/indexRoutes';
 import productsRoutes from './routes/productsRoutes';
 import providersRoutes from './routes/providersRoutes';
 import authenticationRoutes from './routes/authenticationRoutes';
 import resupplyRoutes from './routes/resupplyRoutes';
+import imagesRoutes from './routes/imagesRoutes';
 
 const passport= require('passport');
 import morgan from 'morgan';
@@ -30,20 +32,17 @@ class Server{
   routes():void{
   this.app.use('/',indexRoutes);
   this.app.use('/productos',productsRoutes);
-<<<<<<< HEAD
-  
-  this.app.use('/proveedores',providersRoutes);
-  this.app.use('/signup',authenticationRoutes);
-  this.app.use('/entradas',resupplyRoutes);
-=======
+
   this.app.use('/users',usersRoutes);
   this.app.use('/proveedores',providersRoutes);
   this.app.use('/signup',authenticationRoutes);
   this.app.use('/usuario',UsuarioRoutes);
->>>>>>> 728318a5f6d483ccbfe5597c4f871aceab1ca761
-  this.app.use(passport.initialize());
-  this.app.use(passport.session());
+  this.app.use('/entradas',resupplyRoutes);
+  this.app.use('/images',imagesRoutes);
+  this.app.use('uploads',express.static(path.resolve('uploads')))
   }
+
+  
 
   start():void{
   this.app.listen(this.app.get('port'),()=>{

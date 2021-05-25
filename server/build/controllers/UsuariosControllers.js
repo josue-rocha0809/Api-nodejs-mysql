@@ -30,6 +30,12 @@ class UsuarioControllers {
             res.status(404).json({ text: 'the user dont exist' });
         });
     }
+    createUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield database_1.default.query('INSERT INTO users set ?', [req.body]);
+            res.json({ message: 'User saved' });
+        });
+    }
 }
 const usuarioControllers = new UsuarioControllers();
 exports.default = usuarioControllers;

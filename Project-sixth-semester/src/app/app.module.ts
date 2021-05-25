@@ -22,6 +22,7 @@ import { ProveedoresService } from './services/proveedores.service';
 import { NavComponent } from './nav/nav.component';
 
 import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt'
+import { TrabajadoresService } from './services/trabajadores.service';
 
 
 
@@ -45,7 +46,7 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt'
     MatFormFieldModule,
     HttpClientModule,
   ],
-  providers: [ProductosService,ProveedoresService,UsuariosService,JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
+  providers: [ProductosService,ProveedoresService,UsuariosService,TrabajadoresService,JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

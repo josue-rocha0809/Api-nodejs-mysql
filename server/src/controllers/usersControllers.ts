@@ -14,8 +14,7 @@ const jwt=require('jsonwebtoken');
         const {username, password}= req.body;
       const users= await pool.query('Select username,role from users where username=? and password=?',
         [username,password]);
-       
-     
+
        if(users.length>0){
         let data=JSON.stringify(users[0]);
         const token=jwt.sign(data,'stil');
@@ -26,9 +25,7 @@ const jwt=require('jsonwebtoken');
        }
 
        secretinfo=(req:Request,res:Response,next:NextFunction)=>{
-  
-        if(!req.headers.authorization)return res.status(401).json('no autorizado')
-       
+        if(!req.headers.authorization)return res.status(401).json('no autorizado') 
         const token=req.headers.authorization.substr(7);
         if(token!==''){
           const content= jwt.verify(token,'stil');
@@ -37,20 +34,12 @@ const jwt=require('jsonwebtoken');
           next();
        }else{
            res.json('token vacio')
-
        }
        }
 
        secret=(req:Request,res:Response)=>{
-
        res.json('informacion secreta')
        }
-
-
-
-
-    
-       
     }
     
 

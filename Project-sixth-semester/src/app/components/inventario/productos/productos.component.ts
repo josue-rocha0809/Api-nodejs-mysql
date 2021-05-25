@@ -67,8 +67,6 @@ export class ProductosComponent implements OnInit {
   }
 
   saveProduct(){
-
-
     delete this.produ.id;
   this.productService.saveProduct(this.produ)
   .subscribe(

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Authentication } from 'src/app/models/authentication';
+import { Users } from 'src/app/models/users';
+import { TrabajadoresService } from 'src/app/services/trabajadores.service';
 import {AutenticacionService} from '../../../services/autenticacion.service'
 @Component({
   selector: 'app-infotrabajadores',
@@ -9,17 +11,33 @@ import {AutenticacionService} from '../../../services/autenticacion.service'
 export class InfotrabajadoresComponent implements OnInit {
 
 
+ trabajadores:any=[];
 
-  aute: Authentication={
-    id:0,
-    nombre:'',
-    contra:''
-  }
-  constructor(private autheticationService: AutenticacionService) { }
+  user:  Users= {
+  id:0,
+  username: '',
+  password: '',
+  role:'',
+};
+
+  constructor(private trabajadoresService:TrabajadoresService) { }
 
   ngOnInit(): void {
+    this.getTrabajadores();
+  }
+  getTrabajadores() {
+   this.trabajadoresService.getTrabajadores().subscribe(
+     res=>(this.trabajadores=res));
   }
 
- 
+  savedUser(){
+    delete this.user.id;
+    this.trabajadoresService.saveTrabajador(this.user).subscribe((res) => {
+      console.log(res);
+      this.getTrabajadores();
+    });
+  }
+
+
 
 }

@@ -25,17 +25,10 @@ export class LoginComponent implements OnInit {
     role:null,
   }
 
-  use:Users={
-    id:0,
-    username:'',
-    password:'',
-    role:'',
-  };
 
   //constructor(private loginService: loginService) { }
   constructor(private router:Router,
               private authService:AutenticacionService,
-              private activedRoute: ActivatedRoute,
               private usuarioService:UsuariosService
               )
               {
@@ -53,13 +46,6 @@ export class LoginComponent implements OnInit {
       )
 
   }
-
- // getProduct(){
-   // this.usuarioService.getOneUser().subscribe(
-    //  res=>(this.User=res)
-    //);
-  //}
-
 
   onLogin(){
   console.log(this.user);

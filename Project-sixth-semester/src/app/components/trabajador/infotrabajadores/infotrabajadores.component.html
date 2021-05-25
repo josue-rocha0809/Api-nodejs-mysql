@@ -1,28 +1,78 @@
 <app-nav></app-nav>
+
 <div class="container">
   <div class="row">
     <div class="col">
-      <form action='/signup' class="row g-3 needs-validation" novalidate>
-        <div class="col-md-6">
-          <label for="validationCustom01" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="validationCustom01" name='nombre'   [(ngModel)]="aute.nombre">
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-6">
-          <label for="validationCustom01" class="form-label">contraseña</label>
-          <input type="text" class="form-control" id="validationCustom01" name='contra'  [(ngModel)]="aute.contra">
-          <div class="valid-feedback" >
-            Looks good!
-          </div>
-        </div>
+      <h3 class="centrado">Proveedores</h3>
+      <form>
+        <p>
+          <label>Nombre del Proveedor:</label>
+        </p>
+        <p>
+          <input type="text" name="Nombre"  [(ngModel)]='user.username'/>
+        </p>
+        <p>
+          <label>Password:</label>
+        </p>
+        <p>
+          <input type="password" name="password" [(ngModel)]='user.password' />
+        </p>
 
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit" >Agregar Trabajador</button>
+        <p>
+          <label>Cargo:</label>
+        </p>
+        <p>
+          <input type="cargo" name="cargo" [(ngModel)]='user.role' placeholder="admin/cajero"/>
+        </p>
+
+        <div class="tres">
+          <p>
+            <button type="reset">Limpiar</button>
+          </p>
+          <p>
+            <button type="submit" (click)="savedUser()">Guardar</button>
+          </p>
+
         </div>
       </form>
     </div>
-    <div class="col">2 of 2</div>
+    <div class="col">
+<div class="box-list">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">username</th>
+        <th scope="col">cargo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>
+        <ul *ngFor="let tra of trabajadores" >
+          <li >
+           {{tra.username}}
+          </li>
+        </ul>
+
+      </td>
+      <td>
+       <ul  *ngFor="let tra of trabajadores" >
+         <li >
+           {{tra.role}}
+         </li>
+       </ul>
+     </td>
+     <td>
+      <ul *ngFor="let tra of trabajadores" >
+        <li >
+          <button type="button" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          </li>
+        </ul>
+       </td>
+    </tbody>
+  </table>
   </div>
+</div>
+</div>
 </div>

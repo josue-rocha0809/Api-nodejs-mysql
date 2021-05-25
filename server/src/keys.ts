@@ -6,7 +6,7 @@ export default{
         password: 'password',
         database: 'proyecto'
     }
-    /*
+/*
     database:{
         host: 'blrac1jjpenz1l3s4l4z-mysql.services.clever-cloud.com',
         user: 'ufkcvnbdcst1pzov',

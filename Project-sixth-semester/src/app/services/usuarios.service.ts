@@ -11,9 +11,7 @@ export class UsuariosService {
 
   constructor(private http:HttpClient) { }
 
-  getUsuarios():Observable<Users[]>{
-    return  this.http.get<Users[]>(`${this.API_URI}/usuario`);
-  }
+  
 
   getOneUser(id:String){
   return this.http.get(`${this.API_URI}/usuario/${id}`)
