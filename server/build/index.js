@@ -10,11 +10,8 @@ const productsRoutes_1 = __importDefault(require("./routes/productsRoutes"));
 const providersRoutes_1 = __importDefault(require("./routes/providersRoutes"));
 const authenticationRoutes_1 = __importDefault(require("./routes/authenticationRoutes"));
 const resupplyRoutes_1 = __importDefault(require("./routes/resupplyRoutes"));
-<<<<<<< HEAD
 const imagesRoutes_1 = __importDefault(require("./routes/imagesRoutes"));
-=======
 const inventarioRoutes_1 = __importDefault(require("./routes/inventarioRoutes"));
->>>>>>> a78c5e158bd7c89af6ff28e22af17f4a07702fcb
 const passport = require('passport');
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
@@ -37,18 +34,14 @@ class Server {
     routes() {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/productos', productsRoutes_1.default);
-        this.app.use('/entradas', resupplyRoutes_1.default);
         this.app.use('/users', usersRoutes_1.default);
         this.app.use('/proveedores', providersRoutes_1.default);
         this.app.use('/signup', authenticationRoutes_1.default);
         this.app.use('/usuario', UsuarioRoutes_1.default);
-<<<<<<< HEAD
         this.app.use('/entradas', resupplyRoutes_1.default);
         this.app.use('/images', imagesRoutes_1.default);
         this.app.use('uploads', express_1.default.static(path_1.default.resolve('uploads')));
-=======
         this.app.use('/inventario', inventarioRoutes_1.default);
->>>>>>> a78c5e158bd7c89af6ff28e22af17f4a07702fcb
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

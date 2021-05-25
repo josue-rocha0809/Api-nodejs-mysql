@@ -49,19 +49,7 @@ create table venta_producto(
     foreign key (id_producto) references productos(id)
 );
 
-create table usuarios(
-    id int not null auto_increment primary key,
-    nombre varchar(100) not null,
-    apellidos varchar(100) not null,
-    direccion varchar(50) not null,
-    cp int not null,
-    telefono bigint not null,
-    cargo varchar(40) not null,
-    horario varchar(40) not null,
-    correo varchar(100) not null,
-<<<<<<< HEAD
-    contra varchar(100) not null
-);
+
 
 =======
     
@@ -71,4 +59,4 @@ create table users(
     password varchar(30) not null,
     role varchar (30) not null
 );    
->>>>>>> 728318a5f6d483ccbfe5597c4f871aceab1ca761
+

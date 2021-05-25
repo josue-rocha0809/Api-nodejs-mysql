@@ -15,7 +15,7 @@ export class ProductosComponent implements OnInit {
   productos: any = [];
 
   proveedores: Providers[] = [
-    
+
   ];
 
   produ: Products = {
@@ -68,11 +68,11 @@ export class ProductosComponent implements OnInit {
       .subscribe((res) => (this.proveedores = res));
   }
 
-<<<<<<< HEAD
-  saveProduct(){
-=======
+
+  
+
   saveProduct() {
->>>>>>> a78c5e158bd7c89af6ff28e22af17f4a07702fcb
+
     delete this.produ.id;
     this.productService.saveProduct(this.produ).subscribe((res) => {
       console.log(res);
