@@ -5,13 +5,18 @@ import productsRoutes from './routes/productsRoutes';
 import providersRoutes from './routes/providersRoutes';
 import authenticationRoutes from './routes/authenticationRoutes';
 import resupplyRoutes from './routes/resupplyRoutes';
+
 import imagesRoutes from './routes/imagesRoutes';
+
+import inventarioRoutes from './routes/inventarioRoutes';
+
 
 const passport= require('passport');
 import morgan from 'morgan';
 import cors from 'cors';
 import usersRoutes  from './routes/usersRoutes';
 import UsuarioRoutes from './routes/UsuarioRoutes';
+
 
 
 class Server{
@@ -33,13 +38,19 @@ class Server{
   this.app.use('/',indexRoutes);
   this.app.use('/productos',productsRoutes);
 
+
+
+  
+
   this.app.use('/users',usersRoutes);
   this.app.use('/proveedores',providersRoutes);
   this.app.use('/signup',authenticationRoutes);
   this.app.use('/usuario',UsuarioRoutes);
   this.app.use('/entradas',resupplyRoutes);
   this.app.use('/images',imagesRoutes);
-  this.app.use('uploads',express.static(path.resolve('uploads')))
+  this.app.use('uploads',express.static(path.resolve('uploads')));
+  this.app.use('/inventario',inventarioRoutes);
+  
   }
 
   

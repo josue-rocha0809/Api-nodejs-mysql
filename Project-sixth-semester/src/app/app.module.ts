@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { MatFormFieldModule} from '@angular/material/form-field';
@@ -25,6 +25,19 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt'
 import { TrabajadoresService } from './services/trabajadores.service';
 
 
+import { ProductListComponent } from './components/ventas/product-list/product-list.component';
+import { CartComponent } from './components/ventas/cart/cart.component';
+import { CartItemComponent } from './components/ventas/cart-item/cart-item.component';
+import { ProductItemComponent } from './components/ventas/product-item/product-item.component';
+import { VentaComponent } from './components/ventas/venta/venta.component';
+
+import { NgxPayPalModule } from 'ngx-paypal';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ModalComponent } from './components/ventas/modal/modal.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -38,6 +51,12 @@ import { TrabajadoresService } from './services/trabajadores.service';
     MercanciaComponent,
     ListComponent,
     NavComponent,
+    ProductListComponent,
+    CartComponent,
+    CartItemComponent,
+    ProductItemComponent,
+    VentaComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,8 +64,15 @@ import { TrabajadoresService } from './services/trabajadores.service';
     FormsModule,
     MatFormFieldModule,
     HttpClientModule,
+    NgxPayPalModule,
+    NgbModule,
+    NgxSpinnerModule,
+
   ],
+
   providers: [ProductosService,ProveedoresService,UsuariosService,TrabajadoresService,JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class AppModule { }

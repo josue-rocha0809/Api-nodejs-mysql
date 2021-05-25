@@ -32,6 +32,7 @@ class ProductsControllers{
     
     }
     public  async delete(req:Request,res:Response){
+      console.log(req.params);
      const {id}= req.params;
      await pool.query('DELETE FROM productos WHERE id = ?',[id]);
      res.json({message:'the game was deleted'});

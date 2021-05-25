@@ -3,6 +3,7 @@ import { Products } from 'src/app/models/products';
 import { Resupplys } from 'src/app/models/resupplys';
 import { EntradasService } from 'src/app/services/entradas.service';
 import { ProductosService } from 'src/app/services/productos.service';
+import { InventarioService} from 'src/app/services/inventario.service';
 
 @Component({
   selector: 'app-mercancia',
@@ -30,7 +31,8 @@ export class MercanciaComponent implements OnInit {
   };
 
   constructor(private resupplyService: EntradasService,
-              private productService: ProductosService ) { }
+              private productService: ProductosService,
+              private inventarioService: InventarioService ) { }
 
   ngOnInit(): void {
     this.getResupply();
@@ -49,14 +51,21 @@ export class MercanciaComponent implements OnInit {
     delete this.entra.fecha;
     delete this.entra.id;
     this.resupplyService.saveResupply(this.entra).subscribe(
+      res => (console.log(res))
+    );
+    this.updateInventario();
+    this.getResupply();
+    
+  }
+
+  deleteResupply(id: string){
+    this.resupplyService.deleteResupply(id).subscribe(
       res => {
         console.log(res);
-        
         this.getResupply();
-
       },
-      err => console.error(err)
-    ) 
+      err => console.log(err)
+    )
   }
 
   
@@ -64,5 +73,13 @@ export class MercanciaComponent implements OnInit {
     this.productService.getProducts().subscribe(
       res=>(this.productos=res)
     );
+  }
+
+  updateInventario(){
+    this.inventarioService.updateInventario(this.produ).subscribe(
+     res =>{
+       console.log(res);
+     } 
+    )
   }
 }
