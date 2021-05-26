@@ -1,97 +1,97 @@
 <app-nav></app-nav>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h3 class="centrado">Proveedores</h3>
-      <form>
-        <p>
-          <label>Nombre del Proveedor:</label>
-        </p>
-        <p>
-          <input type="text" name="Nombre" [(ngModel)]="prove.nombre_prove"/>
-        </p>
-        <p>
-          <label>Direccion:</label>
-        </p>
-        <p>
-          <input type="text" name="Direccion" [(ngModel)]='prove.direccion_prove' />
-        </p>
-        <p>
-          <label>Codigo Postal:</label>
-        </p>
-        <p>
-          <input type="number" name="CodigoPostal" [(ngModel)]='prove.cp_prove' />
-        </p>
-        <p>
-          <label>Telefono:</label>
-        </p>
-        <p>
-          <input type="tel" name="Telefono" [(ngModel)]='prove.telefono_prove' />
-        </p>
-        <div class="tres">
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3 class="centrado">Proveedores</h3>
+        <form autocomplete="off">
           <p>
-            <button type="reset">Limpiar</button>
+            <label>Nombre del Proveedor:</label>
           </p>
           <p>
-            <button type="submit" (click)='saveProvider()'>Guardar</button>
+            <input type="text" name="Nombre" autocomplete="off" [(ngModel)]="prove.nombre_prove"/>
           </p>
-        </div>
-      </form>
-    </div>
-    <div class="col">
-      <div class="box-list">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Proveedor</th>
-              <th scope="col">Direccion</th>
-              <th scope="col">Codigo Postal</th>
-              <th scope="col">Telefono</th>
-            </tr>
-          </thead>
-          <tbody>
-            <td>
+          <p>
+            <label>Direccion:</label>
+          </p>
+          <p>
+            <input type="text" name="Direccion" autocomplete="off" [(ngModel)]='prove.direccion_prove' />
+          </p>
+          <p>
+            <label>Codigo Postal:</label>
+          </p>
+          <p>
+            <input type="number" name="CodigoPostal" autocomplete="off" [(ngModel)]='prove.cp_prove' />
+          </p>
+          <p>
+            <label>Telefono:</label>
+          </p>
+          <p>
+            <input type="tel" name="Telefono" autocomplete="off" [(ngModel)]='prove.telefono_prove' />
+          </p>
+          <div class="tres">
+            <p>
+              <button type="reset">Limpiar</button>
+            </p>
+            <p>
+              <button type="submit" (click)='saveProvider()'>Guardar</button>
+            </p>
+          </div>
+        </form>
+      </div>
+      <div class="col">
+        <div class="box-list">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Codigo Postal</th>
+                <th scope="col">Telefono</th>
+              </tr>
+            </thead>
+            <tbody>
+              <td>
+                <ul  *ngFor="let pe of proveedores">
+                  <li >
+                   {{pe.nombre_prove}}
+                  </li>
+                </ul>
+           
+              </td>
+              <td>
+               <ul  *ngFor="let pe of proveedores">
+                 <li >
+                  {{pe.direccion_prove}}
+                 </li>
+               </ul>
+             </td>
+             <td>
+               <ul  *ngFor="let pe of proveedores">
+                 <li >
+                  {{pe.cp_prove}}
+                 </li>
+               </ul>
+             </td>
+             <td>
+               <ul  *ngFor="let pe of proveedores">
+                 <li >
+                  ${{pe.telefono_prove}}
+                 </li>
+               </ul>
+             </td>
+             <td>
               <ul  *ngFor="let pe of proveedores">
                 <li >
-                 {{pe.nombre_prove}}
-                </li>
-              </ul>
-         
-            </td>
-            <td>
-             <ul  *ngFor="let pe of proveedores">
-               <li >
-                {{pe.direccion_prove}}
-               </li>
-             </ul>
-           </td>
-           <td>
-             <ul  *ngFor="let pe of proveedores">
-               <li >
-                {{pe.cp_prove}}
-               </li>
-             </ul>
-           </td>
-           <td>
-             <ul  *ngFor="let pe of proveedores">
-               <li >
-                ${{pe.telefono_prove}}
-               </li>
-             </ul>
-           </td>
-           <td>
-            <ul  *ngFor="let pe of proveedores">
-              <li >
-                <button type="button" class="btn btn-danger" (click)="deleteProvider(pe.id)">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-                </li>
-              </ul>
-             </td>
-          </tbody>
-        </table>
-        </div>
+                  <button type="button" class="btn btn-danger" (click)="deleteProvider(pe.id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                  </li>
+                </ul>
+               </td>
+            </tbody>
+          </table>
+          </div>
+      </div>
     </div>
   </div>
-
-

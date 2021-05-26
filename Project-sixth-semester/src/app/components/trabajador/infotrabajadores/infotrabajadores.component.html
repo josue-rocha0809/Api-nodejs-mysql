@@ -1,28 +1,28 @@
 <app-nav></app-nav>
-
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 <div class="container">
   <div class="row">
     <div class="col">
       <h3 class="centrado">Proveedores</h3>
-      <form>
+      <form autocomplete="off">
         <p>
           <label>Nombre del Proveedor:</label>
         </p>
         <p>
-          <input type="text" name="Nombre"  [(ngModel)]='user.username'/>
+          <input type="text" name="Nombre"  autocomplete="off" [(ngModel)]='user.username'/>
         </p>
         <p>
           <label>Password:</label>
         </p>
         <p>
-          <input type="password" name="password" [(ngModel)]='user.password' />
+          <input type="password" name="password" autocomplete="off" [(ngModel)]='user.password' />
         </p>
 
         <p>
           <label>Cargo:</label>
         </p>
         <p>
-          <input type="cargo" name="cargo" [(ngModel)]='user.role' placeholder="admin/cajero"/>
+          <input type="cargo" name="cargo" autocomplete="off" [(ngModel)]='user.role' placeholder="admin/cajero"/>
         </p>
 
         <div class="tres">
@@ -75,4 +75,6 @@
   </div>
 </div>
 </div>
+</div>
+
 </div>

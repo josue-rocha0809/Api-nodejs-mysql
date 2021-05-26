@@ -1,32 +1,62 @@
- <body class="text-center">
+<body class="text-center">
+  <main class="form-signin">
+    <form>
+      <img
+        class="mb-4"
+        src="https://img2.freepng.es/20180524/wst/kisspng-inventory-management-software-logo-inventory-contr-csb-tech-emporium-5b06479706e1d9.2334027615271381990282.jpg"
+        alt=""
+        width="144"
+        height="114"
+      />
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-<main class="form-signin">
-  <form>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+          [(ngModel)]="user.username"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label for="floatingInput">Username</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+          [(ngModel)]="user.password"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="cargo"
+          class="form-control"
+          id="floatingcargo"
+          placeholder="Cargo"
+          [(ngModel)]="user.role"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label for="floatingPassword">Cargo</label>
+      </div>
 
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}">
-      <label for="floatingInput">Username</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
-      <label for="floatingPassword">Password</label>
-    </div>
-    <div class="form-floating">
-      <input type="cargo" class="form-control" id="floatingcargo" placeholder="Cargo" [(ngModel)]="user.role" [ngModelOptions]="{standalone: true}">
-      <label for="floatingPassword">Cargo</label>
-    </div>
-
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="onLogin()" >Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-  </form>
-</main>
-
-  </body>
-
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me" /> Remember me
+        </label>
+      </div>
+      <button
+        class="w-100 btn btn-lg btn-primary"
+        type="submit"
+        (click)="onLogin()"
+      >
+        Sign in
+      </button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    </form>
+  </main>
+</body>
