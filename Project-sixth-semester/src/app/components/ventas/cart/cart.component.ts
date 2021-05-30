@@ -40,17 +40,17 @@ export class CartComponent implements OnInit {
 
   private initConfig(): void {
     this.payPalConfig = {
-        currency: 'EUR',
+        currency: 'MXN',
         clientId: environment.clientId,
         createOrderOnClient: (data) => < ICreateOrderRequest > {
             intent: 'CAPTURE',
             purchase_units: [{
                 amount: {
-                    currency_code: 'EUR',
+                    currency_code: 'MXN',
                     value: this.getTotal().toString(),
                     breakdown: {
                         item_total: {
-                            currency_code: 'EUR',
+                            currency_code: 'MXN',
                             value: this.getTotal().toString()
                         }
                     }
@@ -80,8 +80,9 @@ export class CartComponent implements OnInit {
               data.purchase_units[0].items,
               data.purchase_units[0].amount.value
             );
-            this.emptyCart();
             this.spinner.hide;
+            this.emptyCart();
+            
         },
         onCancel: (data, actions) => {
             console.log('OnCancel', data, actions);
@@ -124,7 +125,7 @@ export class CartComponent implements OnInit {
         item={
           name: it.productName,
           quantity: it.qty,
-          unit_amount: {value: it.productPrecio, currency_code: 'EUR'}
+          unit_amount: {value: it.productPrecio, currency_code: 'MXN'}
         };
         items.push(item);
       });

@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
     console.log(res);
     localStorage.setItem('token',res.token);
     if(this.user.role=='admin'){
-      this.router.navigate(['administrador']);
-    }else this.router.navigate(['cajero']);
+      this.router.navigate(['inventario']);
+    }else this.router.navigate(['venta']);
   })
   }
 
