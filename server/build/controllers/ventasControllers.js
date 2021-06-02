@@ -13,37 +13,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class UsuarioControllers {
+class VentasControllers {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const users = yield database_1.default.query('SELECT * FROM users');
-            res.json(users);
+            const ventas = yield database_1.default.query('SELECT *  FROM ventas');
+            res.json(ventas);
         });
     }
-    getOneUsuario(req, res) {
+    createVenta(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            const usuario = yield database_1.default.query('SELECT * FROM users WHERE id = ?', [id]);
-            if (usuario.length > 0) {
-                return res.json(usuario[0]);
-            }
-            res.status(404).json({ text: 'the user dont exist' });
+            yield database_1.default.query('INSERT INTO ventas set ?', [req.body]);
+            res.json({ message: 'Venta saved' });
         });
     }
-    createUser(req, res) {
+    getId(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO users set ?', [req.body]);
-            res.json({ message: 'User saved' });
+            const venta = yield database_1.default.query('SELECT * FROM ventas ORDER BY id DESC LIMIT 1;');
+            res.json(venta);
         });
     }
-    deleteUser(req, res) {
+    update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.params);
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM users WHERE id = ?', [id]);
-            res.json({ message: 'the User was deleted' });
+            let inv = [];
+            inv = Object.values(req.body);
+            yield database_1.default.query('UPDATE inventario set cantidad_disp=cantidad_disp-? WHERE id_producto= ?', [inv[1], inv[0]]);
+            res.json({ message: 'the inventario was updated' });
         });
     }
 }
-const usuarioControllers = new UsuarioControllers();
-exports.default = usuarioControllers;
+const ventasController = new VentasControllers();
+exports.default = ventasController;

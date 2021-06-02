@@ -38,6 +38,16 @@ export class InfotrabajadoresComponent implements OnInit {
     });
   }
 
+  deleteUsuario(id: string) {
+    this.trabajadoresService.deleteTrabajador(id).subscribe(
+      (res) => {
+        console.log(res);
+        this.getTrabajadores();
+      },
+      (err) => console.log(err)
+    );
+  }
+
 
 
 }

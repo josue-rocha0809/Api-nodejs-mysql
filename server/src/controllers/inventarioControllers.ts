@@ -20,6 +20,8 @@ class InventarioControllers{
       res.json({message:'the product was updated'})
     }
 
+    
+
     public  async delete(req:Request,res:Response){
       console.log(req.params);
      const {id}= req.params;
@@ -27,6 +29,12 @@ class InventarioControllers{
      res.json({message:'the product was deleted'});
     }
 
+    public  async updateInv(req:Request,res:Response){
+      console.log(req.params);
+     const {id}= req.params;
+     await pool.query('DELETE FROM inventario WHERE id_producto = ?',[id]);
+     res.json({message:'the product was deleted'});
+    }
     
     
   

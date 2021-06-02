@@ -13,37 +13,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class UsuarioControllers {
-    list(req, res) {
+class VentaProductosControllers {
+    createVenta(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const users = yield database_1.default.query('SELECT * FROM users');
-            res.json(users);
+            yield database_1.default.query('INSERT INTO ventas set ?', [req.body]);
+            res.json({ message: 'Venta saved' });
         });
     }
-    getOneUsuario(req, res) {
+    update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const usuario = yield database_1.default.query('SELECT * FROM users WHERE id = ?', [id]);
-            if (usuario.length > 0) {
-                return res.json(usuario[0]);
-            }
-            res.status(404).json({ text: 'the user dont exist' });
+            yield database_1.default.query('UPDATE entradas set ? WHERE id= ?', [req.body, id]);
+            res.json({ message: 'the entrada was updated' });
         });
     }
-    createUser(req, res) {
+    delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO users set ?', [req.body]);
-            res.json({ message: 'User saved' });
-        });
-    }
-    deleteUser(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.params);
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM users WHERE id = ?', [id]);
-            res.json({ message: 'the User was deleted' });
+            yield database_1.default.query('DELETE FROM entradas WHERE id = ?', [id]);
+            res.json({ message: 'the entrada was deleted' });
         });
     }
 }
-const usuarioControllers = new UsuarioControllers();
-exports.default = usuarioControllers;
+const ventaProductosController = new VentaProductosControllers();
+exports.default = ventaProductosController;

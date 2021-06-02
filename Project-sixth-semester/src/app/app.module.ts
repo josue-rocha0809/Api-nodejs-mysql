@@ -33,6 +33,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ModalComponent } from './components/ventas/modal/modal.component';
+import { VentaListComponent } from './components/ventas/venta-list/venta-list.component';
 
 
 
@@ -53,6 +54,7 @@ import { ModalComponent } from './components/ventas/modal/modal.component';
     ProductItemComponent,
     VentaComponent,
     ModalComponent,
+    VentaListComponent,
   ],
   imports: [
     BrowserModule,

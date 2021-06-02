@@ -23,6 +23,12 @@ class UsuarioControllers{
         res.json({message:'User saved'});
       }
 
+      public  async deleteUser(req:Request,res:Response){
+        console.log(req.params);
+       const {id}= req.params;
+       await pool.query('DELETE FROM users WHERE id = ?',[id]);
+       res.json({message:'the User was deleted'});
+      }
 
 
 

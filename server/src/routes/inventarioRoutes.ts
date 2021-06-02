@@ -14,6 +14,7 @@ class  InventarioRoutes{
         this.router.delete('/:id',inventarioController.delete);
         
         
+        
     }
 
 }

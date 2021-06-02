@@ -98,3 +98,14 @@ body {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
+
+.img{
+  margin-top: 1.5rem;
+  margin-left: 2.5rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
+easy{
+  font-family: 'Limelight', cursive;
+}

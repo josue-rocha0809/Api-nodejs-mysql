@@ -4,90 +4,104 @@
     <div class="chartjs-size-monitor-expand"><div class=""></div></div>
     <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
   </div>
-  <h2>Productos</h2>
-  <div class="container">
-    <div class="table-responsive">
-      <table class="table table-striped table-sm">
-        <thead>
-          <tr>
-            <th scope="col">Producto</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Proveedor</th>
-            <th scope="col">Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <td>
-            <ul *ngFor="let pro of producto">
-              <li>
-                {{ pro.nombre_pro }}
-              </li>
-            </ul>
-          </td>
-          <td>
-            <ul *ngFor="let pro of producto">
-              <li>
-                {{ pro.marca_pro }}
-              </li>
-            </ul>
-          </td>
-          <td>
-            <ul *ngFor="let pro of producto">
-              <li>
-                {{ pro.id_proveedor }}
-              </li>
-            </ul>
-          </td>
-          <td>
-            <ul *ngFor="let pro of producto">
-              <li class="lis-item-precio">${{ pro.precio }}</li>
-            </ul>
-          </td>
-          <td>
-            <ul *ngFor="let pro of producto">
-              <li>
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  (click)="deleteProduct(pro.id)"
-                >
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </li>
-            </ul>
-          </td>
-          <td>
-            <ul *ngFor="let pro of producto">
-              <li>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  [routerLink]="['/productos/editar', pro.id]"
-                >
-                  <i class="far fa-edit"></i>
-                </button>
-              </li>
-            </ul>
-          </td>
-          <td>
-            <ul>
-              <li>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  [routerLink]="['/productos']"
-                >
-                  <i class="fas fa-plus-circle"></i>
-                </button>
-              </li>
-            </ul>
-          </td>
-        </tbody>
-      </table>
+  <div class="p-7 mb-4 bg-light border rounded-3">
+    <div class="container-fluid py-3">
+      <h2>Productos</h2>
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Proveedor</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>
+              <ul *ngFor="let pro of producto" class="puntos">
+                <li>
+                  {{ pro.id }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of producto" class="puntos">
+                <li>
+                  {{ pro.nombre_pro }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of producto" class="puntos">
+                <li>
+                  {{ pro.marca_pro }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of producto" class="puntos">
+                <li>
+                  {{ pro.id_proveedor }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of producto" class="puntos">
+                <li class="lis-item-precio">${{ pro.precio }}</li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of producto" class="puntos">
+                <li>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="deleteProduct(pro.id)"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of producto" class="puntos">
+                <li>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    [routerLink]="['/productos/editar', pro.id]"
+                  >
+                    <i class="far fa-edit"></i>
+                  </button>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul class="puntos">
+                <li>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    [routerLink]="['/productos']"
+                  >
+                    <i class="fas fa-plus-circle"></i>
+                  </button>
+                </li>
+              </ul>
+            </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
     </div>
   </div>
 
-  <h2>Existencias</h2>
+  <div class="p-7 mb-4 bg-light border rounded-3">
+    <div class="container-fluid py-3">
+      <h2>Existencias</h2>
   <div class="container">
     <div class="table-responsive">
       <table class="table table-striped table-sm">
@@ -99,14 +113,14 @@
         </thead>
         <tbody>
           <td>
-            <ul *ngFor="let inv of inventario">
+            <ul *ngFor="let inv of inventario" class="puntos">
               <li>
                 {{ inv.id_producto }}
               </li>
             </ul>
           </td>
           <td>
-            <ul *ngFor="let inv of inventario">
+            <ul *ngFor="let inv of inventario" class="puntos">
               <li>
                 {{ inv.cantidad_disp }}
               </li>
@@ -116,5 +130,12 @@
       </table>
     </div>
   </div>
+    </div>
+  </div>
+  
 </main>
 
+<div class="p-7 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-3">
+  </div>
+</div>

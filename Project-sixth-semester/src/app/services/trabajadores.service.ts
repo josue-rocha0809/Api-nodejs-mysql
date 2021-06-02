@@ -17,4 +17,8 @@ export class TrabajadoresService {
   saveTrabajador(usuario:Users){
     return  this.http.post(`${this.API_URI}/usuario`,usuario);
   }
+
+  deleteTrabajador(id:String){
+    return  this.http.delete(`${this.API_URI}/usuario/${id}`);
+  }
 }

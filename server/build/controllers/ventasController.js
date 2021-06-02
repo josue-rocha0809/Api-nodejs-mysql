@@ -13,41 +13,43 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class InventarioControllers {
+class VentasControllers {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const inventario = yield database_1.default.query('SELECT *FROM inventario');
-            res.json(inventario);
+            const resupply = yield database_1.default.query('SELECT *  FROM entradas');
+            res.json(resupply);
+        });
+    }
+    getOne(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const resupply = yield database_1.default.query('SELECT * FROM entradas  WHERE id = ?', [id]);
+            if (resupply.length > 0) {
+                return res.json(resupply[0]);
+            }
+            res.status(404).json({ text: 'the entrada doesnt exist' });
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('insert into inventario (id_producto) select MAX(p.id) as id from productos p');
-            res.json({ message: 'Product saved' });
+            yield database_1.default.query('INSERT INTO entradas set ?', [req.body]);
+            res.json({ message: 'Entrada saved' });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('update inventario inv INNER JOIN (select id,id_producto, cantidad_de_ingreso from entradas order by id desc limit 1) lp ON inv.id_producto=lp.id_producto set inv.cantidad_disp= inv.cantidad_disp + lp.cantidad_de_ingreso');
-            res.json({ message: 'the product was updated' });
+            const { id } = req.params;
+            yield database_1.default.query('UPDATE entradas set ? WHERE id= ?', [req.body, id]);
+            res.json({ message: 'the entrada was updated' });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.params);
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM inventario WHERE id_producto = ?', [id]);
-            res.json({ message: 'the product was deleted' });
-        });
-    }
-    updateInv(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.params);
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM inventario WHERE id_producto = ?', [id]);
-            res.json({ message: 'the product was deleted' });
+            yield database_1.default.query('DELETE FROM entradas WHERE id = ?', [id]);
+            res.json({ message: 'the entrada was deleted' });
         });
     }
 }
-const inventarioControllers = new InventarioControllers();
-exports.default = inventarioControllers;
+const ventasController = new VentasControllers();
+exports.default = ventasController;

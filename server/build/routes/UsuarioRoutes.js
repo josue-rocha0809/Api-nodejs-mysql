@@ -15,6 +15,7 @@ class UsuarioRoutes {
         this.router.get('/', UsuariosControllers_1.default.list);
         this.router.get('/:id', UsuariosControllers_1.default.getOneUsuario);
         this.router.post('/', UsuariosControllers_1.default.createUser);
+        this.router.delete('/:id', UsuariosControllers_1.default.deleteUser);
     }
 }
 exports.usuarioRoutes = new UsuarioRoutes();

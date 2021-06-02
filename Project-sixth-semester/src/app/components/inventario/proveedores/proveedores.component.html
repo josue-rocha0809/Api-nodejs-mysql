@@ -1,97 +1,154 @@
 <app-nav></app-nav>
-<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="chartjs-size-monitor">
+    <div class="chartjs-size-monitor-expand"><div class=""></div></div>
+    <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
+  </div>
+
   <div class="container">
     <div class="row">
-      <div class="col">
-        <h3 class="centrado">Proveedores</h3>
-        <form autocomplete="off">
-          <p>
-            <label>Nombre del Proveedor:</label>
-          </p>
-          <p>
-            <input type="text" name="Nombre" autocomplete="off" [(ngModel)]="prove.nombre_prove"/>
-          </p>
-          <p>
-            <label>Direccion:</label>
-          </p>
-          <p>
-            <input type="text" name="Direccion" autocomplete="off" [(ngModel)]='prove.direccion_prove' />
-          </p>
-          <p>
-            <label>Codigo Postal:</label>
-          </p>
-          <p>
-            <input type="number" name="CodigoPostal" autocomplete="off" [(ngModel)]='prove.cp_prove' />
-          </p>
-          <p>
-            <label>Telefono:</label>
-          </p>
-          <p>
-            <input type="tel" name="Telefono" autocomplete="off" [(ngModel)]='prove.telefono_prove' />
-          </p>
-          <div class="tres">
-            <p>
-              <button type="reset">Limpiar</button>
-            </p>
-            <p>
-              <button type="submit" (click)='saveProvider()'>Guardar</button>
-            </p>
+      <div class="col-md-4">
+        <div class="p-7 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-3">
+            <div class="container">
+              <h3 class="centrado">Formulario</h3>
+              <form autocomplete="off">
+                <p>
+                  <label>Nombre del Proveedor:</label>
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    name="Nombre"
+                    autocomplete="off"
+                    class="form-control"
+                    [(ngModel)]="prove.nombre_prove"
+                  />
+                </p>
+                <p>
+                  <label>Direccion:</label>
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    name="Direccion"
+                    autocomplete="off"
+                    class="form-control"
+                    [(ngModel)]="prove.direccion_prove"
+                  />
+                </p>
+                <p>
+                  <label>Codigo Postal:</label>
+                </p>
+                <p>
+                  <input
+                    type="number"
+                    name="CodigoPostal"
+                    autocomplete="off"
+                    class="form-control"
+                    [(ngModel)]="prove.cp_prove"
+                  />
+                </p>
+                <p>
+                  <label>Telefono:</label>
+                </p>
+                <p>
+                  <input
+                    type="tel"
+                    name="Telefono"
+                    autocomplete="off"
+                    class="form-control"
+                    [(ngModel)]="prove.telefono_prove"
+                  />
+                </p>
+                <div class="tres">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                        <button type="reset" class="btn btn-secondary">
+                          Limpiar
+                        </button>
+                      </p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        <button
+                          type="submit"
+                          class="btn btn-success"
+                          (click)="saveProvider()"
+                        >
+                          Guardar
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
-      <div class="col">
-        <div class="box-list">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Proveedor</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Codigo Postal</th>
-                <th scope="col">Telefono</th>
-              </tr>
-            </thead>
-            <tbody>
-              <td>
-                <ul  *ngFor="let pe of proveedores">
-                  <li >
-                   {{pe.nombre_prove}}
-                  </li>
-                </ul>
-           
-              </td>
-              <td>
-               <ul  *ngFor="let pe of proveedores">
-                 <li >
-                  {{pe.direccion_prove}}
-                 </li>
-               </ul>
-             </td>
-             <td>
-               <ul  *ngFor="let pe of proveedores">
-                 <li >
-                  {{pe.cp_prove}}
-                 </li>
-               </ul>
-             </td>
-             <td>
-               <ul  *ngFor="let pe of proveedores">
-                 <li >
-                  ${{pe.telefono_prove}}
-                 </li>
-               </ul>
-             </td>
-             <td>
-              <ul  *ngFor="let pe of proveedores">
-                <li >
-                  <button type="button" class="btn btn-danger" (click)="deleteProvider(pe.id)">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                  </li>
-                </ul>
-               </td>
-            </tbody>
-          </table>
+
+      <div class="col-md-8">
+        <div class="p-7 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-3">
+            <h3 class="centrado">Proveedores Registrados</h3>
+            <div class="box-list">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Proveedor</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Codigo Postal</th>
+                    <th scope="col">Telefono</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <td>
+                    <ul *ngFor="let pe of proveedores" class="puntos">
+                      <li>
+                        {{ pe.nombre_prove }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let pe of proveedores" class="puntos">
+                      <li>
+                        {{ pe.direccion_prove }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let pe of proveedores" class="puntos">
+                      <li>
+                        {{ pe.cp_prove }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let pe of proveedores" class="puntos">
+                      <li>${{ pe.telefono_prove }}</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let pe of proveedores" class="puntos">
+                      <li>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          (click)="deleteProvider(pe.id)"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </li>
+                    </ul>
+                  </td>
+                </tbody>
+              </table>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
+</div>

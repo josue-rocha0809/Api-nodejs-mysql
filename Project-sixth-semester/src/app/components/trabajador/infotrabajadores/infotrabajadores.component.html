@@ -38,16 +38,17 @@
     </div>
     <div class="col">
 <div class="box-list">
+  <h3 class="centrado">Lista de Usuarios</h3>
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">username</th>
-        <th scope="col">cargo</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Cargo</th>
       </tr>
     </thead>
     <tbody>
       <td>
-        <ul *ngFor="let tra of trabajadores" >
+        <ul *ngFor="let tra of trabajadores" class="puntos">
           <li >
            {{tra.username}}
           </li>
@@ -55,17 +56,18 @@
 
       </td>
       <td>
-       <ul  *ngFor="let tra of trabajadores" >
+       <ul  *ngFor="let tra of trabajadores" class="puntos">
          <li >
            {{tra.role}}
          </li>
        </ul>
      </td>
      <td>
-      <ul *ngFor="let tra of trabajadores" >
+      <ul *ngFor="let tra of trabajadores" class="puntos">
         <li >
-          <button type="button" class="btn btn-danger">
+          <button type="button" class="btn btn-danger" (click)="deleteUsuario(tra.id)">
             <i class="fas fa-trash-alt"></i>
+            
           </button>
           </li>
         </ul>

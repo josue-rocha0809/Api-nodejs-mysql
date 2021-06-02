@@ -1,98 +1,129 @@
 <app-nav></app-nav>
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="chartjs-size-monitor">
+    <div class="chartjs-size-monitor-expand"><div class=""></div></div>
+    <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
+  </div>
   <div class="container">
     <div class="row">
-      <div class="col">
-        <h3 class="centrado">Mercancia Entrante</h3>
-        <form>
-          <p>
-            <label>Nombre del Producto:</label>
-          </p>
-          <p>
-            <select
-              class="form-select"
-              aria-label="Default select example"
-              [(ngModel)]="entra.id_producto"
-              [ngModelOptions]="{ standalone: true }"
-            >
-              <option disabled select>Producto</option>
-              <option *ngFor="let pro of productos" value="{{ pro.id }}">
-                {{ pro.nombre_pro }}
-              </option>
-            </select>
-          </p>
-          <p>
-            <label>Cantidad Ingreso:</label>
-          </p>
-          <p>
-            <input
-              type="number"
-              name="cantidadIngreso"
-              autocomplete="off"
-              [(ngModel)]="entra.cantidad_de_ingreso"
-            />
-          </p>
-  
-          <p>
-            <button type="reset">Limpiar</button>
-          </p>
-          <p>
-            <button type="submit" (click)="saveResupply()" (click)="getProduct()">
-              Guardar
-            </button>
-          </p>
-        </form>
-      </div>
-      <div class="col">
-        <div class="container">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Producto</th>
-                <th scope="col">Cantidad de Ingreso</th>
-                <th scope="col">Fecha</th>
-              </tr>
-            </thead>
-            <tbody>
-              <td>
-                <ul *ngFor="let entra of entradas">
-                  <li>
-                    {{ entra.id_producto }}
-                  </li>
-                </ul>
-              </td>
-              <td>
-                <ul *ngFor="let entra of entradas">
-                  <li>
-                    {{ entra.cantidad_de_ingreso }}
-                  </li>
-                </ul>
-              </td>
-              <td>
-                <ul *ngFor="let entra of entradas">
-                  <li>
-                    {{ entra.fecha }}
-                  </li>
-                </ul>
-              </td>
-              <td>
-                <ul *ngFor="let entra of entradas">
-                  <li>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      (click)="deleteResupply(entra.id)"
-                    >
-                      <i class="fas fa-trash-alt"></i>
+      <div class="col-md-4">
+        <div class="p-7 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-3">
+            <h3 class="centrado">Mercancia Entrante</h3>
+            <form>
+              <p>
+                <label>Nombre del Producto:</label>
+              </p>
+              <p>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  [(ngModel)]="entra.id_producto"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  <option disabled select>Producto</option>
+                  <option *ngFor="let pro of productos" value="{{ pro.id }}">
+                    {{ pro.nombre_pro }}
+                  </option>
+                </select>
+              </p>
+              <p>
+                <label>Cantidad Ingreso:</label>
+              </p>
+              <p>
+                <input
+                  type="number"
+                  name="cantidadIngreso"
+                  autocomplete="off"
+                  class="form-control"
+                  [(ngModel)]="entra.cantidad_de_ingreso"
+                />
+              </p>
+              <hr>
+              <div class="container">
+              <div class="row">
+                <div class="col">
+                  <p>
+                    <button type="reset" class="btn btn-secondary">
+                      Limpiar
                     </button>
-                  </li>
-                </ul>
-              </td>
-            </tbody>
-          </table>
+                  </p>
+                </div>
+                <div class="col">
+                <p>
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    (click)="saveResupply()"
+                    (click)="getProduct()"
+                  >
+                    Guardar
+                  </button>
+                </p>
+                </div>
+              </div>
+            </div>
+              
+            </form>
+          </div>
         </div>
       </div>
+      
+          <div class="col-md-8">
+            <div class="p-7 mb-4 bg-light rounded-3">
+              <div class="container-fluid py-3">
+                <h3 class="centrado">Entradas Registradas</h3>
+            <div class="container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cantidad de Ingreso</th>
+                    <th scope="col">Fecha</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <td>
+                    <ul *ngFor="let entra of entradas" class="puntos">
+                      <li>
+                        {{ entra.id_producto }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let entra of entradas" class="puntos">
+                      <li>
+                        {{ entra.cantidad_de_ingreso }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let entra of entradas" class="puntos">
+                      <li>
+                        {{ entra.fecha }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let entra of entradas" class="puntos">
+                      <li>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          (click)="deleteResupply(entra.id)"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </li>
+                    </ul>
+                  </td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
-  
 </main>

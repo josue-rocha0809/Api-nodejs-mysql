@@ -1,51 +1,102 @@
 <app-nav></app-nav>
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-  <div class="container">
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="chartjs-size-monitor">
+    <div class="chartjs-size-monitor-expand"><div class=""></div></div>
+    <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
+  </div>
+
+  <div class="tabla">
     <div class="row">
-      <div class="col">
-        <h3 class="centrado">Productos</h3>
-        <form>
-          <p>
-            <label>Nombre del Producto:</label>
-          </p>
-          <p>
-            <input type="text" name="Nombre" autocomplete="off" [(ngModel)]="produ.nombre_pro" />
-          </p>
-          <p>
-            <label>Marca:</label>
-          </p>
-          <p>
-            <input type="text" name="marca" autocomplete="off" [(ngModel)]="produ.marca_pro" />
-          </p>
-          <p>
-            <label>Proveedor:</label>
-          </p>
-  
-          <select class="form-select" aria-label="Default select example"  [(ngModel)]="produ.id_proveedor" [ngModelOptions]="{standalone: true}">
-            <option disabled select>Proveedor</option>
-            <option *ngFor="let pe of proveedores" value={{pe.id}}  >
-              {{pe.nombre_prove}}
-            </option>
-          </select>
-  
-          <p>
-            <label>Precio:</label>
-          </p>
-          <p>
-            <input type="tel" name="precio" autocomplete="off" [(ngModel)]="produ.precio" />
-          </p>
-          <div class="tres">
-            <p>
-              <button type="reset">Limpiar</button>
-            </p>
-            <p>
-              <button type="submit" (click)=" edit ? updateProduct() : saveProduct()">Guardar</button>
-            </p>
+      <div class="col-md-6">
+        <div class="p-7 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-3">
+            <h3 class="centrado">Productos</h3>
+            <form>
+              <p>
+                <label>Nombre del Producto:</label>
+              </p>
+              <p>
+                <input
+                  type="text"
+                  name="Nombre"
+                  autocomplete="off"
+                  class="form-control"
+                  placeholder="Nombre del Producto"
+                  [(ngModel)]="produ.nombre_pro"
+                />
+              </p>
+              <p>
+                <label>Marca:</label>
+              </p>
+              <p>
+                <input
+                  type="text"
+                  name="marca"
+                  autocomplete="off"
+                  class="form-control"
+                  placeholder="Marca"
+                  [(ngModel)]="produ.marca_pro"
+                />
+              </p>
+              <p>
+                <label>Proveedor:</label>
+              </p>
+
+              <select
+                class="form-select w-50"
+                aria-label="Default select example"
+                with="5rem"
+                placeholder="Proveedor"
+                [(ngModel)]="produ.id_proveedor"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option disabled select>Proveedor</option>
+                <option *ngFor="let pe of proveedores" value="{{ pe.id }}">
+                  {{ pe.nombre_prove }}
+                </option>
+              </select>
+
+              <p>
+                <label>Precio:</label>
+              </p>
+              <p>
+                <input
+                  type="tel"
+                  name="precio"
+                  autocomplete="off"
+                  class="form-control"
+                  placeholder="Precio"
+                  [(ngModel)]="produ.precio"
+                />
+              </p>
+              <div class="tres">
+                <div class="row">
+                  <div class="col">
+                    <p>
+                      <button type="reset" class="btn btn-secondary">
+                        Limpiar
+                      </button>
+                    </p>
+                  </div>
+                  <div class="col">
+                    <p>
+                      <button
+                        type="submit"
+                        class="btn btn-success"
+                        (click)="edit ? updateProduct() : saveProduct()"
+                      >
+                        Guardar
+                      </button>
+                    </p>
+                  </div>
+                </div>
+                
+                
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
-  
     </div>
   </div>
-  
 </main>
