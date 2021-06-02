@@ -50,6 +50,13 @@ class ResupplyControllers {
             res.json({ message: 'the entrada was deleted' });
         });
     }
+    deletePro(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            yield database_1.default.query('DELETE FROM entradas WHERE id_producto = ?', [id]);
+            res.json({ message: 'the entrada was deleted' });
+        });
+    }
 }
 const resupplyController = new ResupplyControllers();
 exports.default = resupplyController;

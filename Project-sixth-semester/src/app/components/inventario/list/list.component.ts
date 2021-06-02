@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   constructor(
     private productService: ProductosService,
     private inventarioService: InventarioService,
-    private entradasService: EntradasService
+    private resupplyService: EntradasService
   ) {}
 
   ngOnInit() {
@@ -39,8 +39,8 @@ export class ListComponent implements OnInit {
     });
   }
 
-  deleteProduct(id: String) {
-    this.deleteEntrada(id);
+  deleteProduct(id: string) {
+    this.deletePro(id);
     this.deleteInventario(id);
     this.productService.deleteProduct(id).subscribe(
       (res) => {
@@ -52,7 +52,7 @@ export class ListComponent implements OnInit {
     );
   }
 
-  deleteInventario(id: String) {
+  deleteInventario(id: string) {
     this.inventarioService.deleteInventario(id).subscribe(
       (res) => {
         console.log(res);
@@ -61,12 +61,14 @@ export class ListComponent implements OnInit {
     );
   }
 
-  deleteEntrada(id: String) {
-    this.entradasService.deleteResupply(id).subscribe(
-      (res) => {
+  deletePro(id: string){
+    this.resupplyService.deletePro(id).subscribe(
+      res => {
         console.log(res);
+        
       },
-      (err) => console.log(err)
-    );
+      err => console.log(err)
+    )
   }
+
 }

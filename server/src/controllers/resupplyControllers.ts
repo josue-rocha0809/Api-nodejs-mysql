@@ -32,6 +32,13 @@ class ResupplyControllers{
      await pool.query('DELETE FROM entradas WHERE id = ?',[id]);
      res.json({message:'the entrada was deleted'});
     }
+
+    public  async deletePro(req:Request,res:Response){
+      const {id}= req.params;
+      await pool.query('DELETE FROM entradas WHERE id_producto = ?',[id]);
+      res.json({message:'the entrada was deleted'});
+     }
+
   
 }
 

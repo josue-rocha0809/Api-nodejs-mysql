@@ -13,7 +13,7 @@ class  ResupplyRoutes{
         this.router.post('/',resupplyController.create); //crear producto
         this.router.put('/:id',resupplyController.update); // editar producto
         this.router.delete('/:id',resupplyController.delete);// eliminar producto
-    
+        this.router.delete('/pro/:id',resupplyController.deletePro);// eliminar producto
     }
 
 }

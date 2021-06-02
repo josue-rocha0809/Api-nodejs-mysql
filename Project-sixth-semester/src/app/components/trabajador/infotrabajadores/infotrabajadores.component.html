@@ -1,82 +1,128 @@
 <app-nav></app-nav>
-<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h3 class="centrado">Usuarios</h3>
-      <form autocomplete="off">
-        <p>
-          <label>Nombre del Usuario:</label>
-        </p>
-        <p>
-          <input type="text" name="Nombre"  autocomplete="off" [(ngModel)]='user.username'/>
-        </p>
-        <p>
-          <label>Password:</label>
-        </p>
-        <p>
-          <input type="password" name="password" autocomplete="off" [(ngModel)]='user.password' />
-        </p>
-
-        <p>
-          <label>Cargo:</label>
-        </p>
-        <p>
-          <input type="cargo" name="cargo" autocomplete="off" [(ngModel)]='user.role' placeholder="admin/cajero"/>
-        </p>
-
-        <div class="tres">
-          <p>
-            <button type="reset">Limpiar</button>
-          </p>
-          <p>
-            <button type="submit" (click)="savedUser()">Guardar</button>
-          </p>
-
-        </div>
-      </form>
-    </div>
-    <div class="col">
-<div class="box-list">
-  <h3 class="centrado">Lista de Usuarios</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Usuario</th>
-        <th scope="col">Cargo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <td>
-        <ul *ngFor="let tra of trabajadores" class="puntos">
-          <li >
-           {{tra.username}}
-          </li>
-        </ul>
-
-      </td>
-      <td>
-       <ul  *ngFor="let tra of trabajadores" class="puntos">
-         <li >
-           {{tra.role}}
-         </li>
-       </ul>
-     </td>
-     <td>
-      <ul *ngFor="let tra of trabajadores" class="puntos">
-        <li >
-          <button type="button" class="btn btn-danger" (click)="deleteUsuario(tra.id)">
-            <i class="fas fa-trash-alt"></i>
-            
-          </button>
-          </li>
-        </ul>
-       </td>
-    </tbody>
-  </table>
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="chartjs-size-monitor">
+    <div class="chartjs-size-monitor-expand"><div class=""></div></div>
+    <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
   </div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="p-7 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-3">
+            <h3 class="centrado">Usuarios</h3>
+            <form autocomplete="off">
+              <p>
+                <label>Nombre del Usuario:</label>
+              </p>
+              <p>
+                <input
+                  type="text"
+                  name="Nombre"
+                  autocomplete="off"
+                  class="form-control"
+                  [(ngModel)]="user.username"
+                />
+              </p>
+              <p>
+                <label>Password:</label>
+              </p>
+              <p>
+                <input
+                  type="password"
+                  name="password"
+                  autocomplete="off"
+                  class="form-control"
+                  [(ngModel)]="user.password"
+                />
+              </p>
 
+              <p>
+                <label>Cargo:</label>
+              </p>
+              <p>
+                <input
+                  type="cargo"
+                  name="cargo"
+                  autocomplete="off"
+                  class="form-control"
+                  [(ngModel)]="user.role"
+                  placeholder="admin/cajero"
+                />
+              </p>
+
+              <div class="tres">
+                <div class="row">
+                  <div class="col">
+                    <p>
+                      <button type="reset"
+                      class="btn btn-secondary"
+                      >Limpiar</button>
+                    </p>
+                  </div>
+                  <div class="col">
+                    <p>
+                      <button
+                        type="submit"
+                        class="btn btn-success"
+                        (click)="savedUser()"
+                      >
+                        Guardar
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-7 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-3">
+            <div class="box-list">
+              <h3 class="centrado">Lista de Usuarios</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Cargo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <td>
+                    <ul *ngFor="let tra of trabajadores" class="puntos">
+                      <li>
+                        {{ tra.username }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let tra of trabajadores" class="puntos">
+                      <li>
+                        {{ tra.role }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul *ngFor="let tra of trabajadores" class="puntos">
+                      <li>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          (click)="deleteUsuario(tra.id)"
+                        >
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </li>
+                    </ul>
+                  </td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -27,6 +27,10 @@ export class EntradasService {
     return this.http.put(`${this.API_URI}/entradas/${id}`, updateResupply);
   }
 
+  deletePro(id:String){
+    return  this.http.delete(`${this.API_URI}/entradas/pro/${id}`);
+  }
+
 
 
 }
