@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import { Products } from 'src/app/models/products';
 import { ProductosService } from '../../../services/productos.service';
 import { InventarioService } from '../../../services/inventario.service';
 import { EntradasService } from '../../../services/entradas.service';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +13,7 @@ import { EntradasService } from '../../../services/entradas.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  producto: any = [];
+  producto: Products[] = [];
   inventario: any = [];
 
   constructor(
@@ -22,13 +25,14 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.getInventario();
     this.getProduct();
-    
   }
 
   getProduct() {
     this.productService.getProducts().subscribe((res) => {
       this.producto = res;
       console.log(res);
+      this.collectionSize=this.producto.length;
+      this.refreshProductos();
     });
   }
 
@@ -61,14 +65,26 @@ export class ListComponent implements OnInit {
     );
   }
 
-  deletePro(id: string){
+  deletePro(id: string) {
     this.resupplyService.deletePro(id).subscribe(
-      res => {
+      (res) => {
         console.log(res);
-        
       },
-      err => console.log(err)
-    )
+      (err) => console.log(err)
+    );
   }
 
+  page:number = 1;
+  pageSize:number = 4;
+  collectionSize:number;
+  item: any=[];
+
+  refreshProductos() {
+    this.item = this.producto
+      .map((pro, i:number) => ({id: i + 1, ...pro }))
+      .slice(
+        (this.page - 1) * this.pageSize,
+        (this.page - 1) * this.pageSize + this.pageSize
+      );
+  }
 }

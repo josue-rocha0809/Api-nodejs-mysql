@@ -20,6 +20,22 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe((res) => {
       this.producto = res;
       console.log(res);
+      this.collectionSize=this.producto.length;
+      this.refreshProductos();
     });
+  }
+
+  page:number = 1;
+  pageSize:number = 2;
+  collectionSize:number;
+  item: any=[];
+
+  refreshProductos() {
+    this.item = this.producto
+      .map((pro, i:number) => ({id: i + 1, ...pro }))
+      .slice(
+        (this.page - 1) * this.pageSize,
+        (this.page - 1) * this.pageSize + this.pageSize
+      );
   }
 }

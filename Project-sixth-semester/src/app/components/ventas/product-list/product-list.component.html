@@ -3,10 +3,20 @@
     <div class="container-fluid py-3">
         <div class="container">
             <div class="row">
-                <div class="col-md-10" *ngFor="let produ of producto">
+                <div class="col-md-10" *ngFor="let produ of item">
                     <app-product-item [products]="produ"></app-product-item>
                 </div>
             </div>
         </div>
     </div>
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshProductos()">
+        </ngb-pagination>
+      
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshProductos()">
+          <option [ngValue]="2">2 Productos por pag</option>
+          <option [ngValue]="4">4 Productos por pag</option>
+          <option [ngValue]="6">6 Productos por pag</option>
+        </select>
+      </div>
   </div>

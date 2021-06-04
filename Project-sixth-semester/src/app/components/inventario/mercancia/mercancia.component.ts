@@ -13,12 +13,13 @@ import { InventarioService} from 'src/app/services/inventario.service';
 export class MercanciaComponent implements OnInit {
 
   productos:any=[];
-  entradas:any=[];
+  entradas:Resupplys[]=[];
 
   produ:Products={
     id:null,
     nombre_pro:'',
     marca_pro:'',
+    tipo:'',
     id_proveedor:0,
     precio:0,
   };
@@ -41,9 +42,11 @@ export class MercanciaComponent implements OnInit {
 
   getResupply(){
     this.resupplyService.getResupplys().subscribe(
-      res => (this.entradas=res)
-      
-    );
+      res => {
+        this.entradas=res
+        this.collectionSize=this.entradas.length;
+        this.refreshProductos();
+      });
     
   }
 
@@ -81,5 +84,19 @@ export class MercanciaComponent implements OnInit {
        console.log(res);
      } 
     )
+  }
+
+  page:number = 1;
+  pageSize:number = 4;
+  collectionSize:number;
+  item: any=[];
+
+  refreshProductos() {
+    this.item = this.entradas
+      .map((pro, i:number) => ({id: i + 1, ...pro }))
+      .slice(
+        (this.page - 1) * this.pageSize,
+        (this.page - 1) * this.pageSize + this.pageSize
+      );
   }
 }

@@ -1,15 +1,15 @@
 <div class="modal-header">
-    <h4>Purchase OK!!</h4>
+    <h4>Compra Exitosa!!</h4>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Crosss click')">
 
     </button>
 </div>
 
 <div class="modal-body">
-    <h3>Items Data</h3>
+    <h3>Datos de productos</h3>
     <hr>
     <div *ngFor="let item of items">
-        <p><b>Name:</b>{{item.name}} <b>Units: </b>{{item.quantity}} <b>Price/unit: </b>$ {{item.unit_amount.value}}</p>
+        <p><b>Nombre:</b>{{item.name}} <b>Unidades: </b>{{item.quantity}} <b> Precio/unidad: </b>$ {{item.unit_amount.value}}</p>
     </div>
     <hr>
     <h3><b>Total: </b>$ {{amount}}</h3>
