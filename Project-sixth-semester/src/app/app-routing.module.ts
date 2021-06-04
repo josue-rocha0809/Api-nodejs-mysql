@@ -9,9 +9,13 @@ import { ListComponent } from './components/inventario/list/list.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
 import { VentaComponent } from './components/ventas/venta/venta.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'login',pathMatch:'full'},
+  {path: '', redirectTo:'home',pathMatch:'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'contacto', component: ContactoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'productos', component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}} ,
   {path: 'proveedores', component:ProveedoresComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'} },

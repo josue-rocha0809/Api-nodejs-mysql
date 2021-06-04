@@ -34,6 +34,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ModalComponent } from './components/ventas/modal/modal.component';
 import { VentaListComponent } from './components/ventas/venta-list/venta-list.component';
+import { NavHomeComponent } from './components/nav-home/nav-home.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 
 
@@ -55,6 +58,9 @@ import { VentaListComponent } from './components/ventas/venta-list/venta-list.co
     VentaComponent,
     ModalComponent,
     VentaListComponent,
+    NavHomeComponent,
+    HomeComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,
