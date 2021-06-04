@@ -15,51 +15,59 @@
               <th scope="col">#</th>
               <th scope="col">Producto</th>
               <th scope="col">Marca</th>
+              <th scope="col">Tipo</th>
               <th scope="col">Proveedor</th>
               <th scope="col">Precio</th>
             </tr>
           </thead>
           <tbody>
             <td>
-              <ul *ngFor="let pro of producto" class="puntos">
+              <ul *ngFor="let pro of item" class="puntos">
                 <li>
                   {{ pro.id }}
                 </li>
               </ul>
             </td>
             <td>
-              <ul *ngFor="let pro of producto" class="puntos">
+              <ul *ngFor="let pro of item" class="puntos">
                 <li>
                   {{ pro.nombre_pro }}
                 </li>
               </ul>
             </td>
             <td>
-              <ul *ngFor="let pro of producto" class="puntos">
+              <ul *ngFor="let pro of item" class="puntos">
                 <li>
                   {{ pro.marca_pro }}
                 </li>
               </ul>
             </td>
             <td>
-              <ul *ngFor="let pro of producto" class="puntos">
+              <ul *ngFor="let pro of item" class="puntos">
+                <li>
+                  {{ pro.tipo }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngFor="let pro of item" class="puntos">
                 <li>
                   {{ pro.id_proveedor }}
                 </li>
               </ul>
             </td>
             <td>
-              <ul *ngFor="let pro of producto" class="puntos">
+              <ul *ngFor="let pro of item" class="puntos">
                 <li class="lis-item-precio">${{ pro.precio }}</li>
               </ul>
             </td>
             <td>
-              <ul *ngFor="let pro of producto" class="puntos">
+              <ul *ngFor="let pro of item" class="puntos">
                 <li>
                   <button
                     type="button"
                     class="btn btn-danger"
-                    (click)="deleteProduct(pro.id)"
+                    (click)="deleteProduct(pro.id!)"
                   >
                     <i class="fas fa-trash-alt"></i>
                   </button>
@@ -67,7 +75,7 @@
               </ul>
             </td>
             <td>
-              <ul *ngFor="let pro of producto" class="puntos">
+              <ul *ngFor="let pro of item" class="puntos">
                 <li>
                   <button
                     type="button"
@@ -94,6 +102,17 @@
             </td>
           </tbody>
         </table>
+
+        <div class="d-flex justify-content-between p-2">
+          <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshProductos()">
+          </ngb-pagination>
+        
+          <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshProductos()">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+          </select>
+        </div>
       </div>
     </div>
     </div>

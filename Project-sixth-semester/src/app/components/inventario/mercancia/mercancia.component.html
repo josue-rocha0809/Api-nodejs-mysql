@@ -84,28 +84,28 @@
                 </thead>
                 <tbody>
                   <td>
-                    <ul *ngFor="let entra of entradas" class="puntos">
+                    <ul *ngFor="let entra of item" class="puntos">
                       <li>
                         {{ entra.id_producto }}
                       </li>
                     </ul>
                   </td>
                   <td>
-                    <ul *ngFor="let entra of entradas" class="puntos">
+                    <ul *ngFor="let entra of item" class="puntos">
                       <li>
                         {{ entra.cantidad_de_ingreso }}
                       </li>
                     </ul>
                   </td>
                   <td>
-                    <ul *ngFor="let entra of entradas" class="puntos">
+                    <ul *ngFor="let entra of item" class="puntos">
                       <li>
                         {{ entra.fecha }}
                       </li>
                     </ul>
                   </td>
                   <td>
-                    <ul *ngFor="let entra of entradas" class="puntos">
+                    <ul *ngFor="let entra of item" class="puntos">
                       <li>
                         <button
                           type="button"
@@ -119,6 +119,16 @@
                   </td>
                 </tbody>
               </table>
+              <div class="d-flex justify-content-between p-2">
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshProductos()">
+                </ngb-pagination>
+              
+                <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshProductos()">
+                  <option [ngValue]="2">2 items per page</option>
+                  <option [ngValue]="4">4 items per page</option>
+                  <option [ngValue]="6">6 items per page</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>

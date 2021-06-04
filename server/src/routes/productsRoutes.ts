@@ -8,7 +8,7 @@ class  ProductsRoutes{
   this.config();
     }
     config():void{
-        this.router.get('/',productController.list); // listar todo productos
+        this.router.get('/',productController.list); // listar todos los productos
         this.router.get('/:id',productController.getOne); //listar un producto
         this.router.post('/',productController.create); //crear producto
         this.router.put('/:id',productController.update); // editar producto

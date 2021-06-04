@@ -15,6 +15,7 @@ create table productos (
 id int not null auto_increment primary key,
 nombre_pro varchar(40) not null,
 marca_pro varchar(40) not null,
+tipo varchar(100) not null,
 id_proveedor int not null,
 precio double not null,
 foreign key (id_proveedor) references proveedores(id)

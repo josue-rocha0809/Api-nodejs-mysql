@@ -15,28 +15,28 @@
         </thead>
         <tbody>
           <td>
-            <ul *ngFor="let ven of ventas">
+            <ul *ngFor="let ven of item">
               <li>
                 {{ ven.id }}
               </li>
             </ul>
           </td>
           <td>
-            <ul *ngFor="let ven of ventas">
+            <ul *ngFor="let ven of item">
                 <li>
                   {{ ven.cantidad_de_productos }}
                 </li>
               </ul>
           </td>
           <td>
-            <ul *ngFor="let ven of ventas">
+            <ul *ngFor="let ven of item">
                 <li>
                   {{ ven.fecha }}
                 </li>
               </ul>
           </td>
           <td>
-            <ul *ngFor="let ven of ventas">
+            <ul *ngFor="let ven of item">
                 <li>
                   {{ ven.total }}
                 </li>
@@ -44,6 +44,16 @@
           </td>
         </tbody>
       </table>
+      <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshVentas()">
+        </ngb-pagination>
+      
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshVentas()">
+          <option [ngValue]="2">2 Ventas por pag</option>
+          <option [ngValue]="4">4 Ventas por pag</option>
+          <option [ngValue]="6">6 Ventas por pag</option>
+        </select>
+      </div>
     </div>
       </div>
     </div>
