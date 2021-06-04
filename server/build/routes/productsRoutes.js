@@ -12,7 +12,7 @@ class ProductsRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', productsControllers_1.default.list); // listar todo productos
+        this.router.get('/', productsControllers_1.default.list); // listar todos los productos
         this.router.get('/:id', productsControllers_1.default.getOne); //listar un producto
         this.router.post('/', productsControllers_1.default.create); //crear producto
         this.router.put('/:id', productsControllers_1.default.update); // editar producto
