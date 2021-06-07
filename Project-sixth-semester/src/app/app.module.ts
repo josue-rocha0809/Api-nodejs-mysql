@@ -37,6 +37,7 @@ import { VentaListComponent } from './components/ventas/venta-list/venta-list.co
 import { NavHomeComponent } from './components/nav-home/nav-home.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { EspecificacionesComponent } from './components/especificaciones/especificaciones.component';
 
 
 
@@ -61,6 +62,7 @@ import { ContactoComponent } from './components/contacto/contacto.component';
     NavHomeComponent,
     HomeComponent,
     ContactoComponent,
+    EspecificacionesComponent
   ],
   imports: [
     BrowserModule,

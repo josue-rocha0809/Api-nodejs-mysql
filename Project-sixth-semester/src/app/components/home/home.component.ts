@@ -92,4 +92,9 @@ export class HomeComponent implements OnInit {
     this.infoSoporte=true;
   }
  }
+
+ 
+
+
+
 }
