@@ -3,16 +3,16 @@
   <div class="p-2 mb-4 bg-light border rounded-3">
     <div class="container-fluid py-5">
       <div class="container">
-        
+
           <form class="row g-3">
             <h1 class="title">Contactenos</h1>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Nombre</label>
-              <input type="email" class="form-control" id="inputEmail4" />
+              <input type="email" class="form-control" id="inputEmail4" [(ngModel)]="contacto.nombre" />
             </div>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" />
+              <input type="email" class="form-control" id="inputEmail4" [(ngModel)]="contacto.email"/>
             </div>
             <div class="col-12">
               <label for="inputAddress" class="form-label">Direccion</label>
@@ -21,31 +21,32 @@
                 class="form-control"
                 id="inputAddress"
                 placeholder="1234 Main St"
+                [(ngModel)]="contacto.direccion"
               />
             </div>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Pais</label>
-              <input type="email" class="form-control" id="inputEmail4" />
+              <input type="email" class="form-control" id="inputEmail4" [(ngModel)]="contacto.pais" />
             </div>
             <div class="col-md-6">
-              <label for="inputCity" class="form-label">Ciudad</label>
-              <input type="text" class="form-control" id="inputCity" />
+              <label for="inputCity" class="form-label">Estado</label>
+              <input type="text" class="form-control" id="inputstate" [(ngModel)]="contacto.estado"/>
             </div>
             <div class="col-md-4">
-              <label for="inputState" class="form-label">Estado</label>
-              <input type="text" class="form-control" id="inputState" />
+              <label for="inputState" class="form-label">Ciudad</label>
+              <input type="text" class="form-control" id="inputCity" [(ngModel)]="contacto.ciudad" />
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button type="submit" class="btn btn-primary" (click)="sendMessage()">Enviar</button>
             </div>
           </form>
-        
+
       </div>
     </div>
    </div>
    <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
-      
+
     </div>
   </div>
 </div>

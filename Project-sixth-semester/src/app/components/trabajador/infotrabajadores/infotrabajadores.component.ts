@@ -34,8 +34,9 @@ export class InfotrabajadoresComponent implements OnInit {
     delete this.user.id;
     this.trabajadoresService.saveTrabajador(this.user).subscribe((res) => {
       console.log(res);
+      alert('trabajador agregado')
       this.getTrabajadores();
-    
+
     });
   }
 
@@ -43,6 +44,7 @@ export class InfotrabajadoresComponent implements OnInit {
     this.trabajadoresService.deleteTrabajador(id).subscribe(
       (res) => {
         console.log(res);
+        alert('trabajador eliminado')
         this.getTrabajadores();
       },
       (err) => console.log(err)

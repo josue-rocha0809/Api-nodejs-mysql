@@ -61,3 +61,13 @@ create table users(
     role varchar (30) not null
 );    
 
+create table contacto(
+    id int not null auto_increment primary key,
+    email varchar(100) not null,
+    nombre varchar(30) not null,
+    direccion varchar(100) not null,
+    pais varchar (30) not null,
+    estado varchar (30) not null,
+    ciudad varchar (30) not null
+); 
+
