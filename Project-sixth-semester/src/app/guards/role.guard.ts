@@ -25,6 +25,8 @@ constructor(
 
   if( abc.role !== expectedRole){
     console.log('usuario no autorizado');
+    alert("usuario no autorizado");
+    this.router.navigate(['venta'])
     return false;
   }
 

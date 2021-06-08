@@ -35,6 +35,7 @@ export class InfotrabajadoresComponent implements OnInit {
     this.trabajadoresService.saveTrabajador(this.user).subscribe((res) => {
       console.log(res);
       this.getTrabajadores();
+    
     });
   }
 

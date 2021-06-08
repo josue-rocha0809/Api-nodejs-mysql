@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'inventario', component:ListComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
   {path: 'productos/editar/:id',component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
   {path: 'trabajadores', component:InfotrabajadoresComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}},
-  {path: 'venta', component:VentaComponent}
+  {path: 'venta', component:VentaComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

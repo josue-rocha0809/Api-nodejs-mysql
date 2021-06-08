@@ -17,6 +17,7 @@ constructor(private authService:AutenticacionService,private router:Router){
     if(!this.authService.isAuth()){
       console.log('Token no es valido o ya expiro');
       this.router.navigate(['login']);
+      alert('Necesitas iniciar sesion')
       return false;
     }
     return true;

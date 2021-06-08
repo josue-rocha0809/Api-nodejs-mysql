@@ -70,13 +70,14 @@ export class ProductosComponent implements OnInit {
   }
 
 
-  
+
 
   saveProduct() {
 
     delete this.produ.id;
     this.productService.saveProduct(this.produ).subscribe((res) => {
       console.log(res);
+      alert('producto Guardado');
       this.saveInventario();
       this.router.navigate(['/inventario']);
     });
@@ -86,6 +87,7 @@ export class ProductosComponent implements OnInit {
     this.productService.updateProduct(this.produ.id!, this.produ).subscribe(
       (res) => {
         console.log(res);
+        alert('Producto Actualizado');
         this.router.navigate(['/inventario']);
       },
       (err) => console.log(err)

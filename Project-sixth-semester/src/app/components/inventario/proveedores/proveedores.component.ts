@@ -32,6 +32,7 @@ export class ProveedoresComponent implements OnInit {
     this.providerService.saveProvider(this.prove).subscribe((res) => {
       console.log(res);
       this.getProvider();
+      alert('Proveedor agregado')
     });
   }
 
@@ -46,6 +47,7 @@ export class ProveedoresComponent implements OnInit {
       (res) => {
         console.log(res);
         this.getProvider();
+        alert('Proveedor eliminado')
       },
       (err) => console.log(err)
     );
