@@ -6,7 +6,6 @@ import providersRoutes from "./routes/providersRoutes";
 import authenticationRoutes from "./routes/authenticationRoutes";
 import resupplyRoutes from "./routes/resupplyRoutes";
 
-import imagesRoutes from "./routes/imagesRoutes";
 
 import inventarioRoutes from "./routes/inventarioRoutes";
 
@@ -17,6 +16,7 @@ import usersRoutes from "./routes/usersRoutes";
 import UsuarioRoutes from "./routes/UsuarioRoutes";
 import ventasRoutes from "./routes/ventasRoutes";
 import ventaProductosRoutes from "./routes/ventaProductoRoutes";
+import contactoRoutes from "./routes/contactoRoutes";
 
 class Server {
   public app: Application;
@@ -42,10 +42,10 @@ class Server {
     this.app.use("/signup", authenticationRoutes);
     this.app.use("/usuario", UsuarioRoutes);
     this.app.use("/entradas", resupplyRoutes);
-    this.app.use("/images", imagesRoutes);
     this.app.use("uploads", express.static(path.resolve("uploads")));
     this.app.use("/inventario", inventarioRoutes);
     this.app.use("/venta",ventasRoutes);
+    this.app.use("/contacto",contactoRoutes);
     
   }
 

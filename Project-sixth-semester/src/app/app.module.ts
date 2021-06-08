@@ -38,6 +38,7 @@ import { NavHomeComponent } from './components/nav-home/nav-home.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { EspecificacionesComponent } from './components/especificaciones/especificaciones.component';
+import { ContactoService } from './services/contacto.service';
 
 
 
@@ -76,7 +77,7 @@ import { EspecificacionesComponent } from './components/especificaciones/especif
 
   ],
 
-  providers: [ProductosService,ProveedoresService,UsuariosService,TrabajadoresService,JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
+  providers: [ProductosService,ContactoService,ProveedoresService,UsuariosService,TrabajadoresService,JwtHelperService,{provide:JWT_OPTIONS,useValue:JWT_OPTIONS}],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
