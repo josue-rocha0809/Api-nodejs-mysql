@@ -11,10 +11,12 @@ import { RoleGuard } from './guards/role.guard';
 import { VentaComponent } from './components/ventas/venta/venta.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { EspecificacionesComponent } from './components/especificaciones/especificaciones.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'home',pathMatch:'full'},
   {path: 'home', component: HomeComponent},
+  {path: 'especificaciones', component: EspecificacionesComponent},
   {path: 'contacto', component: ContactoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'productos', component:ProductosComponent,canActivate:[RoleGuard,AuthGuard],data:{expectedRole:'admin'}} ,

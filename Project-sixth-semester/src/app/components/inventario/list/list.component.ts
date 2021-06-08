@@ -25,6 +25,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.getInventario();
     this.getProduct();
+    
   }
 
   getProduct() {
