@@ -22,9 +22,9 @@ export class ProductosComponent implements OnInit {
     id: null,
     nombre_pro: '',
     marca_pro: '',
-    tipo:'',
     id_proveedor: 0,
     precio: 0,
+    tipo:'',
   };
 
   inven: Inventario = {
